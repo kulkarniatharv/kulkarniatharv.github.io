@@ -6,16 +6,16 @@ html{
 .row {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 4px;
     align-items: center;
     align-content: space-between;
     border: solid crimson;
+    flex-direction: row;
 }
 .column {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: flex-start;
+    align-items: center;
     padding: 5%;
 }
 .number {
@@ -29,12 +29,12 @@ html{
 .number:hover{
     background-color: blueviolet;
 }
-@media (max-width: 80rem) {
+/*@media (max-width: 80rem) {
     .column {
       flex: 50%;
       max-width: 50%;
     }
-}
+}*/
 .input_text{
     width: 5rem;
 }
