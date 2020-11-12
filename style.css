@@ -1,0 +1,111 @@
+body {
+  background-color: #181819;
+}
+
+.container{
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+#svgElement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#svgElement > svg {
+  height: 100%;
+  margin: auto;
+}
+
+#ConeLight {
+  fill: orange !important;
+  animation: .6s infinite coneCycle;
+}
+
+@-webkit-keyframes coneCycle {
+  50% {
+    fill: white;
+  }
+  100% {
+    fill: #d62209;
+  }
+}
+#CraneLight {
+  fill: white;
+  animation: .6s infinite coneCycle;
+}
+
+#Winch {
+  transform: translateX(88px);
+  animation: 4s linear infinite winchCycle;
+  animation-direction: alternate-reverse;
+}
+
+@-webkit-keyframes winchCycle {
+  0% {
+    transform: translateX(88px);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+#PaintRoller {
+  animation: .7s ease infinite paintRoller;
+  transform: translateY(-1px);
+  animation-direction: alternate-reverse;
+}
+
+@-webkit-keyframes paintRoller {
+  0% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(21px);
+  }
+}
+
+.text-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(230, 230, 230);
+  font-family: Montserrat;
+}
+
+.text-details > h1 {
+  font-size: 3em;
+  color: #bef5ff;
+}
+
+.text-details h2 {
+  width: 90%;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.text-details p {
+  width: 90%;
+  text-align: center;
+  border-top: 3px solid #a7f2ff;
+  padding-top: 1em;
+  margin-top: 3em;
+}
+
+.text-details ol {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.text-details li {
+  padding-top: 1em;
+  font-weight: bolder;
+}
+
+.text-details a {
+  text-decoration: none;
+  color: rgb(173, 232, 255);
+}
