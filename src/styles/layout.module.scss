@@ -1,0 +1,31 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background-image: linear-gradient(rgba(204, 204, 220, 0.25) 1px, transparent 1px),
+            linear-gradient(to right, rgba(204, 204, 220, 0.25) 1px, transparent 1px);
+        background-size: 30px 30px;
+        /* Smaller grid boxes */
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: radial-gradient(transparent, #ffffff 85%);
+    }
+}

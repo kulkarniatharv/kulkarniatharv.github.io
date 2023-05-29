@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkkulkarniatharv=self.webpackChunkkulkarniatharv||[]).push([[220],{7744:function(e,r,t){t.r(r);var a=t(7294),n=t(3210);r.default=function(){return a.createElement(n.Z,{currentPage:"Projects",pageTitle:"Projects | Atharv Kulkarni"},a.createElement("div",null,"PROJECTS"))}}}]);
-//# sourceMappingURL=component---src-pages-projects-js-8b6a4c28599b43e10db7.js.map
