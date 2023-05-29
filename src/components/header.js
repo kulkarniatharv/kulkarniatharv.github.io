@@ -14,7 +14,7 @@ const Header = () => (
   >
     <Box>
       <Heading as="h1" size="md" fontWeight="bold" color="black">
-        Atharv
+        AK
       </Heading>
     </Box>
     <Box>
