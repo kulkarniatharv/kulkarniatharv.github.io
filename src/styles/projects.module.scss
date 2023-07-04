@@ -10,9 +10,48 @@
     border: 1px solid #e9ecef;
     border-radius: 4px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .projectLink {
+        text-decoration: none;
+        color: #000;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        h2 {
+            margin-top: 1rem;
+        }
+
+        p {
+            margin-top: 0.5rem;
+            color: #333;
+        }
+    }
 }
 
-.project-link {
-    text-decoration: none;
-    color: #000;
+.section {
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+}
+
+.project p {
+    margin-top: 1rem;
 }

@@ -12,7 +12,6 @@ import Layout from "../components/Layout"
 import Projects from "../components/Projects"
 import BlogPosts from "../components/BlogPosts"
 
-
 const MotionHeading = motion(Heading);
 
 const Home = ({ data }) => {
@@ -26,14 +25,14 @@ const Home = ({ data }) => {
     <Layout>
       <Box display="flex" flexDirection="column">
         <Flex justifyContent="center" alignItems="center" flexGrow={1}>
-          <Container>
-            <Text mt={4} textAlign="center" fontSize="xs">
+          <Container maxWidth={'unset'}>
+            <Text mt={4} textAlign="center" fontSize="xl">
               Hi, I'm
             </Text>
             <animated.div style={titleSpring}>
               <MotionHeading
                 as="h1"
-                size="3xl"
+                size="4xl"
                 textAlign="center"
                 fontWeight="bold"
                 letterSpacing="tight"
@@ -44,15 +43,21 @@ const Home = ({ data }) => {
                 Atharv Kulkarni
               </MotionHeading>
             </animated.div>
-            <Text mt={4} textAlign="center" >
+            <Text mt={4} textAlign="center" fontSize="2xl">
               Deciphering the Future, One Innovation at a Time.
             </Text>
           </Container>
         </Flex>
-        <Flex justifyContent="center" alignItems="center" py={8}>
+        <Flex flexDirection="column" justifyContent="center" alignItems="center" py={8}>
           <Link to="/projects">
-            <Button size="lg" colorScheme="teal">
+            <Button size="lg" colorScheme="twitter" variant="solid">
               Explore My Projects
+            </Button>
+          </Link>
+          <span style={{'padding': '10px'}}>Or</span>
+          <Link to="/blog">
+            <Button size="lg" colorScheme="messenger" variant="solid">
+              Read One Of My Articles
             </Button>
           </Link>
         </Flex>

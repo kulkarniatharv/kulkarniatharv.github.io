@@ -42,17 +42,17 @@ const Footer = () => {
   return (
     <Box as="footer" role="contentinfo" py="6">
       <Flex justify="center">
-        <Link href="https://twitter.com/iatharvkulkarni" isExternal mx="2">
-          <Icon as={FaTwitter} boxSize="4" color="#1DA1F2" />
+        <Link href="https://twitter.com/iatharvkulkarni" isExternal mx="2.5">
+          <Icon as={FaTwitter} boxSize="6" color="#1DA1F2" />
         </Link>
-        <Link href="https://github.com/kulkarniatharv" isExternal mx="2">
-          <Icon as={FaGithub} boxSize="4" color="#333" />
+        <Link href="https://github.com/kulkarniatharv" isExternal mx="2.5">
+          <Icon as={FaGithub} boxSize="6" color="#333" />
         </Link>
-        <Link href="https://linkedin.com/in/kulkarniatharv" isExternal mx="2">
-          <Icon as={FaLinkedin} boxSize="4" color="#0077B5" />
+        <Link href="https://linkedin.com/in/kulkarniatharv" isExternal mx="2.5">
+          <Icon as={FaLinkedin} boxSize="6" color="#0077B5" />
         </Link>
-        <Link href="mailto:iatharvkulkarni@gmail.com" mx="2">
-          <Icon as={FaEnvelope} boxSize="4" color="#000" />
+        <Link href="mailto:iatharvkulkarni@gmail.com" mx="2.5">
+          <Icon as={FaEnvelope} boxSize="6" color="#000" />
         </Link>
       </Flex>
     </Box>

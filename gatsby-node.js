@@ -34,11 +34,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve("src/templates/blog-post.js")
   const projectTemplate = path.resolve("src/templates/project.js")
+  const sectionTemplate = path.resolve("src/templates/section.js")
 
   const result = await graphql(`
     {
@@ -46,40 +48,151 @@ exports.createPages = async ({ graphql, actions }) => {
         filter: { fileAbsolutePath: { regex: "/blog/" } }
       ) {
         nodes {
-          fields {
+          frontmatter {
             slug
           }
         }
       }
+
       projects: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/projects/" } }
       ) {
         nodes {
-          fields {
+          frontmatter {
             slug
+            sections
+            description
+            imageurl {
+              childImageSharp {
+                gatsbyImageData(layout: FIXED, width: 200, height: 200)
+              }
+            }
           }
         }
       }
     }
   `)
 
+  console.log("result.data", result.data);
+
   result.data.blogPosts.nodes.forEach((node) => {
     createPage({
-      path: `/blog${node.fields.slug}`,
+      path: `/blog/${node.frontmatter.slug}`,
       component: blogPostTemplate,
       context: {
-        slug: node.fields.slug,
+        slug: node.frontmatter.slug,
       },
     })
   })
 
-  result.data.projects.nodes.forEach((node) => {
+  const projects = result.data.projects.nodes;
+
+  projects.forEach((node) => {
     createPage({
-      path: `/projects${node.fields.slug}`,
+      path: `/projects/${node.frontmatter.slug}`,
       component: projectTemplate,
       context: {
-        slug: node.fields.slug,
+        frontmatter: node.frontmatter,
+        slug: node.frontmatter.slug
       },
     })
   })
+
+  // const sectionGroups = projects.reduce((groups, project) => {
+  //   project.frontmatter.sections.forEach((section) => {
+  //     groups[section] = groups[section] || [];
+  //     groups[section].push(project);
+  //   });
+  //   return groups;
+  // }, {});
+
+  // Object.keys(sectionGroups).forEach((section) => {
+  //   createPage({
+  //     path: `/sections/${section}`,
+  //     component: sectionTemplate,
+  //     context: {
+  //       projects: sectionGroups[section],
+  //     },
+  //   });
+  // });
+
+  let sections = [];
+  result.data.projects.nodes.forEach((node) => {
+    node.frontmatter.sections.forEach((section) => {
+      if (!sections.includes(section)) {
+        sections.push(section);
+        createPage({
+          path: `/sections/${section}`,
+          component: sectionTemplate,
+          context: {
+            section,
+          },
+        });
+      }
+    });
+  });
 }
+
+
+
+// exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
+
+//   const blogPostTemplate = path.resolve("src/templates/blog-post.js")
+//   const projectTemplate = path.resolve("src/templates/project.js")
+
+//   const result = await graphql(`
+//     {
+//       blogPosts: allMarkdownRemark(
+//         filter: { fileAbsolutePath: { regex: "/blog/" } }
+//       ) {
+//         nodes {
+//           frontmatter {
+//             slug
+//           }
+//         }
+//       }
+
+//       projects: allMarkdownRemark(
+//         filter: { fileAbsolutePath: { regex: "/projects/" } }
+//       ) {
+//         nodes {
+//           frontmatter {
+//             slug
+//             description
+//             imageurl {
+//               childImageSharp {
+//                 gatsbyImageData(layout: FIXED, width: 200, height: 200)
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `)
+
+//   console.log("result.data", result.data);
+
+//   result.data.blogPosts.nodes.forEach((node) => {
+//     createPage({
+//       path: `/blog/${node.frontmatter.slug}`,
+//       component: blogPostTemplate,
+//       context: {
+//         slug: node.frontmatter.slug,
+//       },
+//     })
+//   })
+
+//   result.data.projects.nodes.forEach((node) => {
+    
+//     createPage({
+//       path: `/projects/${node.frontmatter.slug}`,
+//       component: projectTemplate,
+//       context: {
+//         slug: node.frontmatter.slug,
+//         imageurl: node.frontmatter.imageurl,
+//         description: node.frontmatter.description,
+//       },
+//     })
+//   })
+// }

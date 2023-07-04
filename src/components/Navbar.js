@@ -25,7 +25,7 @@ const Navbar = () => {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader borderBottomWidth="1px">Navigation</DrawerHeader>
+            <DrawerHeader marginBottom={"10px"}></DrawerHeader>
             <DrawerBody>
               <VStack spacing={4} alignItems="stretch">
                 <MotionLink
@@ -37,7 +37,7 @@ const Navbar = () => {
                   p={4}
                   rounded="md"
                   whileHover={{ scale: 1.05, bg: "gray.200" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.1 }}
                   onClick={handleClose}
                 >
                   Home
@@ -51,7 +51,7 @@ const Navbar = () => {
                   p={4}
                   rounded="md"
                   whileHover={{ scale: 1.05, bg: "gray.200" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.1 }}
                   onClick={handleClose}
                 >
                   Projects
@@ -65,7 +65,7 @@ const Navbar = () => {
                   p={4}
                   rounded="md"
                   whileHover={{ scale: 1.05, bg: "gray.200" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.1 }}
                   onClick={handleClose}
                 >
                   Blog

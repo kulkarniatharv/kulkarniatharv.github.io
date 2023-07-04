@@ -1,19 +1,70 @@
-import React from "react"
-import { Link } from "gatsby"
-import * as projectsStyles from "../styles/projects.module.scss"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { Box } from "@chakra-ui/react";
+import * as projectsStyles from "../styles/projects.module.scss";
+import ProjectsSection from '../components/ProjectsSection';
 
-const Projects = ({ projects }) => {
+const Projects = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark (
+        filter: { fileAbsolutePath: { regex: "/projects/" } }
+      ) {
+        nodes {
+          frontmatter {
+            title
+            description
+            sections
+            slug
+            imageurl {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const projects = data.allMarkdownRemark.nodes.map((node) => ({
+    ...node.frontmatter,
+    slug: node.frontmatter.slug,
+  }));
+
+  const sectionGroups = projects.reduce((groups, project) => {
+    project.sections.forEach((section) => {
+      groups[section] = groups[section] || [];
+      groups[section].push(project);
+    });
+    return groups;
+  }, {});
+
   return (
-    <div className={projectsStyles.projects}>
-      {projects.map((project, index) => (
-        <div key={index} className={projectsStyles.project}>
-          <Link to={`/projects/${project.frontmatter.slug}`} className={projectsStyles.projectLink}>
-            {project.frontmatter.title}
-          </Link>
-        </div>
+    <Box>
+      {Object.entries(sectionGroups).map(([section, projects]) => (
+        <ProjectsSection key={section} section={section} projects={projects} />
       ))}
-    </div>
-  )
-}
+    </Box>
+  );
+};
 
-export default Projects
+
+///--- --- --- --- --- --- --- ---
+// const Projects = ({ projects }) => {
+
+//   const groupedProjects = projects.reduce((grouped, project) => {
+//     (grouped[project.frontmatter.section] = grouped[project.frontmatter.section] || []).push(project);
+//     return grouped;
+//   }, {});
+
+//   return (
+//     <div className={projectsStyles.projects}>
+//       {Object.entries(groupedProjects).map(([sectionTitle, projects]) => (
+//         <ProjectsSection key={sectionTitle} sectionTitle={sectionTitle} projects={projects} />
+//       ))}
+//     </div>
+//   )
+// }
+
+export default Projects;
