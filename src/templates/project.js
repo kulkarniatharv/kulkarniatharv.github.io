@@ -1,10 +1,11 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import { Box, Image, Text } from "@chakra-ui/react";
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { graphql } from 'gatsby'
+import { Box, Image, Text } from '@chakra-ui/react'
+import Layout from '../components/Layout'
 
 const ProjectTemplate = ({ data }) => {
-  const project = data.markdownRemark.frontmatter;
+  const project = data.markdownRemark.frontmatter
 
   return (
     <Box>
@@ -14,11 +15,11 @@ const ProjectTemplate = ({ data }) => {
       </Text>
       <Text>{project.description}</Text>
     </Box>
-  );
-};
+  )
+}
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
@@ -31,38 +32,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default ProjectTemplate;
-
-// export default function ProjectTemplate({ data }) {
-//   const { markdownRemark } = data
-//   const { frontmatter, html } = markdownRemark
-//   const { title, imageurl, description } = frontmatter
-
-//   return (
-//     <Layout>
-//       <h1>{title}</h1>
-//       <img src={imageurl} alt={title} />
-//       <p>{description}</p>
-//       <div dangerouslySetInnerHTML={{ __html: html }} />
-//     </Layout>
-//   )
-// }
-
-// export const query = graphql`
-//   query($slug: String!) {
-//     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-//       html
-//       frontmatter {
-//         title
-//         description
-//         imageurl {
-//           childImageSharp {
-//             gatsbyImageData(layout: FIXED, width: 200, height: 200)
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export default ProjectTemplate

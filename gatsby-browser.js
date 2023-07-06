@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -6,9 +7,9 @@
 
 // You can delete this file if you're not using it
 
-import React from 'react';
-import initializeAOS from './aos.config';
+import React from 'react'
+import initializeAOS from './aos.config'
 
 export const onInitialClientRender = () => {
-  initializeAOS();
-};
+  initializeAOS()
+}

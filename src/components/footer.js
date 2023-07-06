@@ -1,25 +1,3 @@
-// src/components/footer.js
-
-//   <Box as="footer" py={4} textAlign="center">
-//     <HStack spacing="24px" justifyContent="center" marginBottom="1rem">
-//       <Link href="https://twitter.com/your-handle" isExternal>
-//         <TwitterIcon boxSize="24px" />
-//       </Link>
-//       <Link href="https://github.com/your-handle" isExternal>
-//         <GithubIcon boxSize="24px" />
-//       </Link>
-//       <Link href="https://www.linkedin.com/in/your-handle/" isExternal>
-//         <LinkedinIcon boxSize="24px" />
-//       </Link>
-//       <Link href="mailto:your-email@example.com">
-//         <EmailIcon boxSize="24px" />
-//       </Link>
-//     </HStack>
-//     <Text fontSize="xs" color="black">
-//       © {new Date().getFullYear()} Atharv Kulkarni. All rights reserved.
-//     </Text>
-//   </Box>
-
 import React from "react";
 import { Box, Link, Icon, Flex } from "@chakra-ui/react";
 import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
@@ -38,7 +16,10 @@ const GmailIcon = createIcon({
     ),
   });
 
-const Footer = () => {
+const Footer = (props) => {
+
+  const { currColorMode } = props;
+
   return (
     <Box as="footer" role="contentinfo" py="6">
       <Flex justify="center">
@@ -46,13 +27,13 @@ const Footer = () => {
           <Icon as={FaTwitter} boxSize="6" color="#1DA1F2" />
         </Link>
         <Link href="https://github.com/kulkarniatharv" isExternal mx="2.5">
-          <Icon as={FaGithub} boxSize="6" color="#333" />
+          <Icon as={FaGithub} boxSize="6" color={currColorMode === 'light' ? "#333" : "FFF"} />
         </Link>
         <Link href="https://linkedin.com/in/kulkarniatharv" isExternal mx="2.5">
           <Icon as={FaLinkedin} boxSize="6" color="#0077B5" />
         </Link>
         <Link href="mailto:iatharvkulkarni@gmail.com" mx="2.5">
-          <Icon as={FaEnvelope} boxSize="6" color="#000" />
+          <Icon as={FaEnvelope} boxSize="6" color={currColorMode === 'light' ? "#333" : "FFF"} />
         </Link>
       </Flex>
     </Box>

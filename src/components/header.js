@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 // src/components/header.js
 
-import React from 'react';
-import { Flex, Box, Heading, Button, useColorMode } from '@chakra-ui/react';
-import Navbar from './Navbar';
+import React from 'react'
+import { Flex, Box, Button, Icon } from '@chakra-ui/react'
+import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
-const Header = (props) => {
- 
-  const { toggleColorModeFunction, currColorMode } = props;
+import Navbar from './Navbar'
+
+const Header = props => {
+  const { toggleColorModeFunction, currColorMode } = props
 
   return (
     <Flex
@@ -17,15 +19,19 @@ const Header = (props) => {
       alignItems="center"
     >
       <Box>
-        <Button onClick={toggleColorModeFunction}>
-          {currColorMode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode' }
+        <Button variant="ghost" onClick={toggleColorModeFunction}>
+          {currColorMode === 'light' ? (
+            <Icon as={MoonIcon} boxSize="6" />
+          ) : (
+            <Icon as={SunIcon} boxSize="6" />
+          )}
         </Button>
       </Box>
       <Box>
-        <Navbar />  
+        <Navbar />
       </Box>
     </Flex>
-  );
+  )
 }
 
-export default Header;
+export default Header
