@@ -10,7 +10,9 @@ import {
   Flex,
   Button,
   ChakraProvider,
+  CSSReset,
 } from '@chakra-ui/react'
+import { Global, css } from '@emotion/react'
 import { motion } from 'framer-motion'
 import { useSpring, animated } from 'react-spring'
 
@@ -25,6 +27,17 @@ import BlogPosts from '../components/BlogPosts'
 
 const MotionHeading = motion(Heading)
 
+const globalStyles = css`
+  body.chakra-ui-light {
+    /* override styles for light mode */
+    font-family: 'Inter', sans-serif !important;
+  }
+  body.chakra-ui-dark {
+    /* override styles for dark mode */
+    font-family: 'Inter', sans-serif !important;
+  }
+`
+
 const Home = ({ data }) => {
   const titleSpring = useSpring({
     from: { opacity: 0, transform: 'translateY(20px)' },
@@ -34,6 +47,8 @@ const Home = ({ data }) => {
 
   return (
     <ChakraProvider theme={theme}>
+      <CSSReset />
+      <Global styles={globalStyles} />
       <Layout>
         <Box display="flex" flexDirection="column">
           <Flex justifyContent="center" alignItems="center" flexGrow={1}>

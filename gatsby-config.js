@@ -74,5 +74,14 @@ module.exports = {
         isUsingColorMode: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Inter:400,700`, // include the font weights you need
+        ],
+        display: 'swap',
+      },
+    },
   ],
 }
