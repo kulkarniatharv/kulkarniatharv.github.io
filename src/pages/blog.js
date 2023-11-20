@@ -1,20 +1,24 @@
+/* eslint-disable react/prop-types */
 // src/pages/blog.js
-import React from "react"
-import { graphql, Link } from "gatsby"
-import Layout from "../components/Layout"
-import "../styles/global.scss"
-import * as styles from "../styles/blogPosts.module.scss"
+import React from 'react'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+import '../styles/global.scss'
+import * as styles from '../styles/blogPosts.module.scss'
 
 export default function Blog({ data }) {
   const blogPosts = data.allMarkdownRemark.nodes
 
   return (
-    <Layout> 
+    <Layout>
       <h1>Blog Posts</h1>
       <div className={styles.blogPosts}>
-        {blogPosts.map((post) => (
+        {blogPosts.map(post => (
           <div className={styles.blogPost} key={post.id}>
-            <Link className={styles.blogPostLink} to={`/blog/${post.frontmatter.slug}`}>
+            <Link
+              className={styles.blogPostLink}
+              to={`/blog/${post.frontmatter.slug}`}
+            >
               <h3>{post.frontmatter.title}</h3>
             </Link>
           </div>

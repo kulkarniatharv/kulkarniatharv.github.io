@@ -1,22 +1,34 @@
 // src/components/navbar.js
 
-import React, { useState } from 'react';
-import { Box, Flex, IconButton, Link, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, VStack } from '@chakra-ui/react';
-import { Link as GatsbyLink } from 'gatsby';
-import { HamburgerIcon } from '@chakra-ui/icons';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'
+import {
+  Box,
+  Flex,
+  IconButton,
+  Link,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  VStack,
+} from '@chakra-ui/react'
+import { Link as GatsbyLink } from 'gatsby'
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { motion } from 'framer-motion'
 
-const MotionLink = motion(Link);
+const MotionLink = motion(Link)
 
 const Navbar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  const handleClose = () => setIsDrawerOpen(false);
-  const handleToggle = () => setIsDrawerOpen(!isDrawerOpen);
+  const handleClose = () => setIsDrawerOpen(false)
+  const handleToggle = () => setIsDrawerOpen(!isDrawerOpen)
 
   return (
     <>
-      <IconButton
+      {/* <IconButton
         aria-label="Menu"
         icon={<HamburgerIcon />}
         onClick={handleToggle}
@@ -25,7 +37,7 @@ const Navbar = () => {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader marginBottom={"10px"}></DrawerHeader>
+            <DrawerHeader marginBottom="10px" />
             <DrawerBody>
               <VStack spacing={4} alignItems="stretch">
                 <MotionLink
@@ -36,7 +48,7 @@ const Navbar = () => {
                   bg="gray.100"
                   p={4}
                   rounded="md"
-                  whileHover={{ scale: 1.05, bg: "gray.200" }}
+                  whileHover={{ scale: 1.05, bg: 'gray.200' }}
                   transition={{ duration: 0.1 }}
                   onClick={handleClose}
                 >
@@ -50,7 +62,7 @@ const Navbar = () => {
                   bg="gray.100"
                   p={4}
                   rounded="md"
-                  whileHover={{ scale: 1.05, bg: "gray.200" }}
+                  whileHover={{ scale: 1.05, bg: 'gray.200' }}
                   transition={{ duration: 0.1 }}
                   onClick={handleClose}
                 >
@@ -64,7 +76,7 @@ const Navbar = () => {
                   bg="gray.100"
                   p={4}
                   rounded="md"
-                  whileHover={{ scale: 1.05, bg: "gray.200" }}
+                  whileHover={{ scale: 1.05, bg: 'gray.200' }}
                   transition={{ duration: 0.1 }}
                   onClick={handleClose}
                 >
@@ -74,13 +86,15 @@ const Navbar = () => {
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
-      </Drawer>
+      </Drawer> */}
+      <Box display="flex" alignItems="center">
+        <Link px={2} py={1} rounded="md">
+          About
+        </Link>
+        {/* Add more links here */}
+      </Box>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
-
-
-
-
+export default Navbar

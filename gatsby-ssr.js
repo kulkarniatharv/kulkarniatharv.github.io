@@ -7,7 +7,6 @@
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
-
 const React = require('react')
 
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {

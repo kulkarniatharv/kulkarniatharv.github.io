@@ -27,3 +27,27 @@
         z-index: -1;
     }
 }
+
+.leftContent {
+    width: 50%;
+    padding: 20px; // Adjust as needed
+    // additional styling for the text
+}
+
+.rightContent {
+    width: 50%;
+    position: relative;
+    overflow: hidden; // This ensures the video doesn't overflow its container
+    // additional styling for the video
+}
+
+@media only screen and (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .leftContent,
+    .rightContent {
+        width: 100%;
+    }
+}

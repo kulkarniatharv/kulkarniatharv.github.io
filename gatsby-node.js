@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -17,30 +18,28 @@
 //   })
 // }
 
-
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark") {
-    const slug = createFilePath({ node, getNode, basePath: "pages" })
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({ node, getNode, basePath: 'pages' })
     createNodeField({
       node,
-      name: "slug",
+      name: 'slug',
       value: slug,
     })
   }
 }
 
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve("src/templates/blog-post.js")
-  const projectTemplate = path.resolve("src/templates/project.js")
-  const sectionTemplate = path.resolve("src/templates/section.js")
+  const blogPostTemplate = path.resolve('src/templates/blog-post.js')
+  const projectTemplate = path.resolve('src/templates/project.js')
+  const sectionTemplate = path.resolve('src/templates/section.js')
 
   const result = await graphql(`
     {
@@ -73,9 +72,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  console.log("result.data", result.data);
+  console.log('result.data', result.data)
 
-  result.data.blogPosts.nodes.forEach((node) => {
+  result.data.blogPosts.nodes.forEach(node => {
     createPage({
       path: `/blog/${node.frontmatter.slug}`,
       component: blogPostTemplate,
@@ -85,15 +84,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  const projects = result.data.projects.nodes;
+  const projects = result.data.projects.nodes
 
-  projects.forEach((node) => {
+  projects.forEach(node => {
     createPage({
       path: `/projects/${node.frontmatter.slug}`,
       component: projectTemplate,
       context: {
         frontmatter: node.frontmatter,
-        slug: node.frontmatter.slug
+        slug: node.frontmatter.slug,
       },
     })
   })
@@ -116,24 +115,22 @@ exports.createPages = async ({ graphql, actions }) => {
   //   });
   // });
 
-  let sections = [];
-  result.data.projects.nodes.forEach((node) => {
-    node.frontmatter.sections.forEach((section) => {
+  const sections = []
+  result.data.projects.nodes.forEach(node => {
+    node.frontmatter.sections.forEach(section => {
       if (!sections.includes(section)) {
-        sections.push(section);
+        sections.push(section)
         createPage({
           path: `/sections/${section}`,
           component: sectionTemplate,
           context: {
             section,
           },
-        });
+        })
       }
-    });
-  });
+    })
+  })
 }
-
-
 
 // exports.createPages = async ({ graphql, actions }) => {
 //   const { createPage } = actions
@@ -184,7 +181,7 @@ exports.createPages = async ({ graphql, actions }) => {
 //   })
 
 //   result.data.projects.nodes.forEach((node) => {
-    
+
 //     createPage({
 //       path: `/projects/${node.frontmatter.slug}`,
 //       component: projectTemplate,
