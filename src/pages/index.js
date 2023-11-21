@@ -9,11 +9,16 @@ import {
   Box,
   Flex,
   Button,
+  List,
+  ListItem,
+  ListIcon,
+  Icon,
   ChakraProvider,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { useSpring, animated } from 'react-spring'
+import { FaAws, FaMicrosoft, FaCheckCircle } from 'react-icons/fa'
 
 import theme from '../../theme'
 
@@ -26,6 +31,14 @@ import BlogPosts from '../components/BlogPosts'
 
 const MotionHeading = motion(Heading)
 
+// Bullet list points components
+const CustomListIcon1 = () => <span>💼</span>
+const CustomListIcon2 = () => <span>🌟</span>
+const CustomListIcon3 = () => <span>⏳</span>
+const CustomListIcon4 = () => <span>🎓</span>
+const CustomListIcon5 = () => <span>💻</span>
+const CustomListIcon6 = () => <span>⭐</span>
+
 const Home = ({ data }) => {
   const titleSpring = useSpring({
     from: { opacity: 0, transform: 'translateY(20px)' },
@@ -37,15 +50,14 @@ const Home = ({ data }) => {
     data.landingPageProfilePic.childImageSharp.gatsbyImageData
   )
 
-
   return (
     <ChakraProvider theme={theme}>
       <Layout>
         <Box display="flex" flexDirection="row">
           <Flex justifyContent="center" alignItems="center" flexGrow={1}>
             <Container maxWidth="unset">
-              <Text mt={4} textAlign="left" fontSize="xl">
-                Hi, I'm
+              <Text mt={4} mb={4} textAlign="left" fontSize="l">
+                👋 Welcome! I'm
               </Text>
               <animated.div style={titleSpring}>
                 <MotionHeading
@@ -61,32 +73,100 @@ const Home = ({ data }) => {
                   Atharv Kulkarni
                 </MotionHeading>
               </animated.div>
-              <Text maxWidth="600px" mt={2} textAlign="left" fontSize="l">
-                a Consultant at IBM, and I am steering a course towards the
-                cutting-edge fields of AI and application development. My
-                journey is fortified by professional certifications in Workday
-                Integration and Human Capital Management, along with a proven
-                track record of delivering complex projects to top-tier clients.
-              </Text>
-              <Text maxWidth="600px" mt={4} textAlign="left" fontSize="l">
-                I bring a nuanced understanding of cloud infrastructures, with
-                credentials in AWS and Azure, to the rapidly evolving tech
-                landscape. My skills in communication and content creation are
-                complemented by my innovative work in enhancing AI applications
-                within the HR domain at IBM. My technical portfolio showcases my
-                versatility, from developing MERN stack applications to
-                pioneering blockchain in healthcare.
-              </Text>
+
+              {/* <Text maxWidth="600px" mt={2} textAlign="left" fontSize="l">
+                Current Role: Consultant at IBM Specialization: Workday
+                Integration, AI & Application Development Experience: Over a
+                year at IBM with significant achievements
+              </Text> */}
+              <List spacing={3} mt={6}>
+                <ListItem>
+                  <ListIcon as={CustomListIcon1} color="yellow.500" />
+                  <Text as="span" fontWeight="semibold">
+                    Current Role:
+                  </Text>{' '}
+                  Consultant at IBM
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CustomListIcon2} color="yellow.500" />
+                  <Text as="span" fontWeight="semibold">
+                    Specialization:
+                  </Text>{' '}
+                  Workday Integration, AI & Application Development
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CustomListIcon3} color="yellow.500" />
+                  <Text as="span" fontWeight="semibold">
+                    Experience:
+                  </Text>{' '}
+                  Over a year at IBM with significant achievements
+                </ListItem>
+
+                <ListItem>
+                  <ListIcon as={CustomListIcon4} color="yellow.500" />
+                  <Text as="span" fontWeight="semibold">
+                    Certified Expert:
+                  </Text>{' '}
+                  Workday Integration, Human Capital Management
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CustomListIcon4} color="yellow.500" />
+                  <Text as="span" fontWeight="semibold">
+                    Cloud Certifications
+                  </Text>
+                  <Text pl={8}>
+                    <Icon as={FaAws} /> AWS Certified Cloud Practitioner
+                  </Text>
+                  <Text pl={8}>
+                    <Icon as={FaMicrosoft} /> Azure Certified Data Engineer
+                  </Text>
+                </ListItem>
+                {/* <ListItem>
+                  <ListIcon as={CustomListIcon6} color="yellow.500" />
+                  Skills: Robust Integrations, Security Management, Business
+                  Solutions
+                </ListItem> */}
+                <ListItem>
+                  <ListIcon as={CustomListIcon5} color="yellow.500" />
+                  <Text as="span" fontWeight="semibold">
+                    Tech Stack:{' '}
+                  </Text>
+                  Proficient in JavaScript, Python, React.js, and more
+                </ListItem>
+              </List>
+
               <Text maxWidth="600px" mt={4} textAlign="left" fontSize="l">
                 As I continue to decode the future, I invite you to explore my
                 projects and insights, which are a testament to my relentless
                 pursuit of innovation and excellence.
               </Text>
-              <Box mt={6}>
+
+              {/* <Heading as="h2" size="lg" mt={5}>
+                🔍 On This Site
+              </Heading>
+              {/* 
+              <List spacing={3}>
+                <ListItem>
+                  <ListIcon as={() => <span>⭐</span>} color="yellow.500" />
+                  My Journey: Insights into my professional growth and
+                  achievements
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={() => <span>⭐</span>} color="yellow.500" />
+                  Projects: Showcase of notable works and contributions
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={() => <span>⭐</span>} color="yellow.500" />
+                  Collaboration: Open to opportunities and partnerships
+                </ListItem>
+              </List> */}
+              <Flex mt={6} justifyContent="space-around">
                 <Link to="/projects">
                   <Button
                     colorScheme="customBlue"
                     variant="outline"
+                    flex="1"
+                    mr={4}
                     _hover={{
                       bg: 'customBlue.500',
                       color: 'white',
@@ -95,20 +175,26 @@ const Home = ({ data }) => {
                     Explore My Projects
                   </Button>
                 </Link>
-                <span style={{ padding: '10px' }}>Or</span>
-                <Link to="/blog">
+                <Link to="/about">
                   <Button
                     colorScheme="customOrange"
                     variant="outline"
+                    flex="1"
+                    mr={4}
                     _hover={{
                       bg: 'customOrange.500',
                       color: 'white',
                     }}
                   >
-                    Read One Of My Articles
+                    Read More About Me
                   </Button>
                 </Link>
-              </Box>
+                <Link to="/about">
+                  <Button colorScheme="cyan" variant="outline" flex="1" mr={4}>
+                    Check out my Blog
+                  </Button>
+                </Link>
+              </Flex>
             </Container>
           </Flex>
           <Flex

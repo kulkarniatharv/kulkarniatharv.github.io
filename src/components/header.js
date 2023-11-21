@@ -62,6 +62,18 @@ const Header = props => {
               Home
             </Button>
           </ChakraLink>
+          <ChakraLink as={GatsbyLink} to="/about" px={2} py={1} rounded="md">
+            <Button
+              colorScheme="customColorForNavLinks"
+              variant="ghost"
+              _hover={{
+                bg: 'black',
+                color: 'teal',
+              }}
+            >
+              About Me
+            </Button>
+          </ChakraLink>
           <ChakraLink as={GatsbyLink} to="/projects" px={2} py={1} rounded="md">
             <Button
               colorScheme="customColorForNavLinks"
