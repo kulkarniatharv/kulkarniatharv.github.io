@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Box, Link, Icon, Flex } from '@chakra-ui/react'
 import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import ColorModeContext from '../contexts/ColorModeContext'
 
 const Footer = props => {
-  const { currColorMode } = props
-
+  // const { currColorMode } = props
+  const { colorMode, toggleColorMode } = useContext(ColorModeContext)
   return (
     <Box as="footer" role="contentinfo" py="6">
       <Flex justify="center">
@@ -26,7 +27,7 @@ const Footer = props => {
           <Icon
             as={FaGithub}
             boxSize="6"
-            color={currColorMode === 'light' ? '#333' : 'FFF'}
+            color={colorMode === 'light' ? '#333' : 'FFF'}
           />
         </Link>
         <Link
@@ -45,7 +46,7 @@ const Footer = props => {
           <Icon
             as={FaEnvelope}
             boxSize="6"
-            color={currColorMode === 'light' ? '#333' : 'FFF'}
+            color={colorMode === 'light' ? '#333' : 'FFF'}
           />
         </Link>
       </Flex>

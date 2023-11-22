@@ -8,6 +8,9 @@
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 const React = require('react')
+const { ChakraProvider } = require('@chakra-ui/react')
+const theme = require('./theme').default
+const ColorModeProvider = require('./src/contexts/ColorModeProvider').default
 
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `en` })
@@ -23,3 +26,9 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 exports.onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: `en` })
 }
+
+exports.wrapRootElement = ({ element }) => (
+  <ChakraProvider theme={theme}>
+    <ColorModeProvider>{element}</ColorModeProvider>
+  </ChakraProvider>
+)

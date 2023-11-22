@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
 // src/components/header.js
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { Flex, Box, Button, Icon, Link as ChakraLink } from '@chakra-ui/react'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
-// import LogoDark from '../assets/images/Atharv_Kulkarni-logo_dark_mode.svg'
-// import LogoLight from '../assets/images/Atharv_Kulkarni-logo.svg'
-
-import Navbar from './Navbar'
+import ColorModeContext from '../contexts/ColorModeContext'
 
 const Header = props => {
-  const { toggleColorModeFunction, currColorMode } = props
+  const { colorMode, toggleColorMode } = useContext(ColorModeContext)
 
   const data = useStaticQuery(graphql`
     query {
@@ -25,6 +22,10 @@ const Header = props => {
       }
     }
   `)
+
+  const toggleColorModeHandler = () => {
+    toggleColorMode(colorMode === 'light' ? 'dark' : 'light')
+  }
 
   return (
     <Flex
@@ -40,7 +41,7 @@ const Header = props => {
         <img
           width="100px"
           src={
-            currColorMode === 'light'
+            colorMode === 'light'
               ? data.logoLight.publicURL
               : data.logoDark.publicURL
           }
@@ -98,8 +99,8 @@ const Header = props => {
               Blog
             </Button>
           </ChakraLink>
-          <Button variant="ghost" onClick={toggleColorModeFunction}>
-            {currColorMode === 'light' ? (
+          <Button variant="ghost" onClick={toggleColorModeHandler}>
+            {colorMode === 'light' ? (
               <Icon as={MoonIcon} boxSize="6" />
             ) : (
               <Icon as={SunIcon} boxSize="6" />

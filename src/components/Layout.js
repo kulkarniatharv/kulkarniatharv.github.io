@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
 // src/components/Layout.js
-import React, { useEffect } from 'react'
-import { Box, useColorMode, CSSReset } from '@chakra-ui/react'
-import { Global, css } from '@emotion/react'
+import React, { useEffect, useContext } from 'react'
+import { Box, CSSReset } from '@chakra-ui/react'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import gsap from 'gsap'
+import { Global, css } from '@emotion/react'
 import Header from './header'
 import Footer from './footer'
 import ScrollToTopButton from './ScrollToTopButton'
 
+// Context import
+import ColorModeContext from '../contexts/ColorModeContext'
+
+// Styles
 import '../styles/global.scss'
 import * as layoutStyles from '../styles/layout.module.scss'
 import '../styles/layout-overlay-radial-gradients.scss'
@@ -33,16 +37,12 @@ const globalStyles = css`
 `
 
 const Layout = ({ children }) => {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode, toggleColorMode } = useContext(ColorModeContext)
   const isLightMode = colorMode === 'light'
 
   const overlayContainerClass = `overlay-container ${
     isLightMode ? '' : 'dark-mode'
   }`
-
-  const toggleColorModeFunction = () => {
-    toggleColorMode()
-  }
 
   useEffect(() => {
     // Ensure GSAP animations only run in the browser
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
 
         gsap.to(selector, {
           backgroundPosition: `${initialX}% ${initialY}%`,
-          duration: 5, // Duration of one loop of the animation
+          duration: 3, // Duration of one loop of the animation
           repeat: 1, // 1 time
           yoyo: true, // Go back and forth
           ease: 'none', // No easing for constant speed
@@ -82,10 +82,7 @@ const Layout = ({ children }) => {
           className={`gradient-layer two ${isLightMode ? 'light' : 'dark'}`}
         />
         <Box className={layoutStyles.layout}>
-          <Header
-            toggleColorModeFunction={toggleColorModeFunction}
-            currColorMode={colorMode}
-          />
+          <Header />
           <Box
             flexGrow={1}
             display="flex"
@@ -95,7 +92,7 @@ const Layout = ({ children }) => {
             {children}
             <ScrollToTopButton />
           </Box>
-          <Footer currColorMode={colorMode} />
+          <Footer />
         </Box>
       </div>
     </>
