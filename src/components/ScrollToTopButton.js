@@ -18,7 +18,7 @@ const ScrollToTopButton = () => {
       size="md"
       fontSize="lg"
       variant="solid"
-      colorScheme="orange"
+      colorScheme="purple"
       isRound
       icon={<ArrowUpIcon />}
       onClick={scrollToTop}

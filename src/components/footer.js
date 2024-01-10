@@ -8,7 +8,7 @@ const Footer = props => {
   // const { currColorMode } = props
   const { colorMode, toggleColorMode } = useContext(ColorModeContext)
   return (
-    <Box as="footer" role="contentinfo" py="6">
+    <Box as="footer" role="contentinfo" py="6" maxHeight="100px">
       <Flex justify="center">
         <Link
           className="social-icon"

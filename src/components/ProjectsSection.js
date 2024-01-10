@@ -14,11 +14,9 @@ const ProjectsSection = ({ section, projects }) => (
     flexDirection="column"
     justifyContent="center"
     id={section}
-    borderTop={1}
-    borderRight={1}
-    borderWidth={1}
-    borderColor="blackAlpha.300"
+    borderWidth="1px"
     borderRadius="lg"
+    boxShadow="md"
     p={6}
     mx={4}
   >

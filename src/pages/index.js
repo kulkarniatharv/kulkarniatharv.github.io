@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useContext } from 'react'
 import { Link, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { StaticImage } from 'gatsby-plugin-image'
 import {
   Container,
   Heading,
@@ -34,19 +34,13 @@ const MotionHeading = motion(Heading)
 
 const Home = ({ data }) => {
   const { colorMode, toggleColorMode } = useContext(ColorModeContext)
-  console.log('colorMode', colorMode)
   const arrowColor = colorMode === 'light' ? 'black' : 'white'
-  console.log('arrowColor', arrowColor)
 
   const titleSpring = useSpring({
     from: { opacity: 0, transform: 'translateY(20px)' },
     to: { opacity: 1, transform: 'translateY(0px)' },
     delay: 500,
   })
-
-  const landingPageImg = getImage(
-    data.landingPageProfilePic.childImageSharp.gatsbyImageData
-  )
 
   return (
     <Layout>
@@ -157,40 +151,51 @@ const Home = ({ data }) => {
                   Collaboration: Open to opportunities and partnerships
                 </ListItem>
               </List> */}
-            <Flex mt={6} justifyContent="space-around">
+            <Flex mt={6} justifyContent="left">
               <Link to="/projects">
                 <Button
-                  colorScheme="customBlue"
+                  colorScheme="purple"
                   variant="outline"
                   flex="1"
                   mr={4}
                   _hover={{
-                    bg: 'customBlue.500',
+                    bg: 'purple.500',
                     color: 'white',
                   }}
+                  width="200px"
                 >
                   Explore My Projects
                 </Button>
               </Link>
               <Link to="/about">
                 <Button
-                  colorScheme="customOrange"
+                  colorScheme="purple"
                   variant="outline"
                   flex="1"
-                  mr={4}
+                  // mr={4}
                   _hover={{
-                    bg: 'customOrange.500',
+                    bg: 'purple.500',
                     color: 'white',
                   }}
+                  width="200px"
                 >
                   Read More About Me
                 </Button>
               </Link>
-              <Link to="/about">
-                <Button colorScheme="cyan" variant="outline" flex="1" mr={4}>
+              {/* <Link to="/blog">
+                <Button
+                  colorScheme="purple"
+                  variant="outline"
+                  flex="1"
+                  mr={4}
+                  _hover={{
+                    bg: 'purple.500',
+                    color: 'white',
+                  }}
+                >
                   Check out my Blog
                 </Button>
-              </Link>
+              </Link> */}
             </Flex>
           </Container>
         </Flex>
@@ -199,8 +204,13 @@ const Home = ({ data }) => {
           justifyContent="center"
           alignItems="center"
           py={8}
+          maxWidth="450px"
         >
-          <GatsbyImage image={landingPageImg} alt="Profile Photo" />
+          {/* <GatsbyImage image={landingPageImg} alt="Profile Photo" /> */}
+          <StaticImage
+            src="../assets/images/landingPageImg.png"
+            alt="Profile Photo"
+          />
         </Flex>
       </Box>
     </Layout>
@@ -227,11 +237,6 @@ export const query = graphql`
           title
           slug
         }
-      }
-    }
-    landingPageProfilePic: file(relativePath: { eq: "landingPageImg.png" }) {
-      childImageSharp {
-        gatsbyImageData(width: 500, layout: CONSTRAINED)
       }
     }
   }

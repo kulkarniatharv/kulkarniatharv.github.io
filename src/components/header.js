@@ -34,7 +34,8 @@ const Header = props => {
       px={8}
       justifyContent="space-between"
       alignItems="center"
-      wrap="wrap"
+      flexWrap="wrap"
+      maxHeight="100px"
     >
       <Box>
         {/* <Box boxSize="100px">{SvgLogo} </Box> */}
@@ -50,63 +51,85 @@ const Header = props => {
       </Box>
       <Box>
         {/* <Navbar /> */}
-        <Box display="flex" alignItems="center">
+        <Flex alignItems="center" flexWrap="wrap">
           <ChakraLink as={GatsbyLink} to="/" px={2} py={1} rounded="md">
             <Button
-              colorScheme="customColorForNavLinks"
+              colorScheme="purple"
               variant="ghost"
               _hover={{
-                bg: 'customColorForNavLinks.500',
+                bg: 'purple.500',
                 color: 'white',
               }}
+              width="100px"
             >
               Home
             </Button>
           </ChakraLink>
-          <ChakraLink as={GatsbyLink} to="/about" px={2} py={1} rounded="md">
+          <ChakraLink
+            as={GatsbyLink}
+            to="/about"
+            px={2}
+            py={1}
+            rounded="md"
+            textAlign="center"
+          >
             <Button
-              colorScheme="customColorForNavLinks"
+              colorScheme="purple"
               variant="ghost"
               _hover={{
-                bg: 'black',
-                color: 'teal',
+                bg: 'purple.500',
+                color: 'white',
               }}
+              width="100px"
             >
               About Me
             </Button>
           </ChakraLink>
           <ChakraLink as={GatsbyLink} to="/projects" px={2} py={1} rounded="md">
             <Button
-              colorScheme="customColorForNavLinks"
+              colorScheme="purple"
               variant="ghost"
               _hover={{
-                bg: 'customColorForNavLinks.500',
+                bg: 'purple.500',
                 color: 'white',
               }}
+              width="100px"
             >
               Projects
             </Button>
           </ChakraLink>
-          <ChakraLink as={GatsbyLink} to="/blog" px={2} py={1} rounded="md">
+          {/* <ChakraLink as={GatsbyLink} to="/blog" px={2} py={1} rounded="md">
             <Button
-              colorScheme="customColorForNavLinks"
+              colorScheme="purple"
               variant="ghost"
               _hover={{
-                bg: 'customColorForNavLinks.500',
+                bg: 'purple.500',
                 color: 'white',
               }}
             >
               Blog
             </Button>
+          </ChakraLink> */}
+          <ChakraLink as={GatsbyLink} to="/resume" px={2} py={1} rounded="md">
+            <Button
+              colorScheme="purple"
+              variant="ghost"
+              _hover={{
+                bg: 'purple.500',
+                color: 'white',
+              }}
+            >
+              Resume
+            </Button>
           </ChakraLink>
-          <Button variant="ghost" onClick={toggleColorModeHandler}>
+          {/* <Button variant="ghost" onClick={toggleColorModeHandler}>
             {colorMode === 'light' ? (
               <Icon as={MoonIcon} boxSize="6" />
             ) : (
               <Icon as={SunIcon} boxSize="6" />
             )}
-          </Button>
-        </Box>
+          </Button> */}
+        </Flex>
       </Box>
     </Flex>
   )

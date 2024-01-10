@@ -88,6 +88,8 @@ const Layout = ({ children }) => {
             display="flex"
             justifyContent="center"
             alignItems="center"
+            overflow="auto"
+            minHeight="calc(100vh - (100px + 100px))" // Adjust 'headerHeight' and 'footerHeight' with actual values
           >
             {children}
             <ScrollToTopButton />

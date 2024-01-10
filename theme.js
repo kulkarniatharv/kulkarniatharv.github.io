@@ -7,7 +7,7 @@ const config = {
 
 const theme = extendTheme({
   config,
-  fonts: { ...base.fonts, body: 'Inter', heading: 'Inter' },
+  fonts: { ...base.fonts, body: 'Montserrat', heading: 'Montserrat' },
   lineHeights: {
     normal: '1.7', // You can adjust this value as needed
   },

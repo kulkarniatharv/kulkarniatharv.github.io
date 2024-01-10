@@ -1,0 +1,127 @@
+{
+    "workExperience": [
+        {
+            "company": "IBM India Private Limited",
+            "role": "Package Consultant - Workday Integrations",
+            "duration": "November 2022 - Present",
+            "badge": "Consulting",
+            "points": [
+                "Attained top-tier certifications in Workday HCM and Integrations.",
+                "Led the development of complex Workday integrations and resolved critical errors.",
+                "Expertise in security management and HCM concepts.",
+                "Collaborated with elite clients like DirectTV and crafted HCM Configuration Workbooks.",
+                "Contributed significantly to the Tools CoE team, enhancing application development using Java, Spring Boot, Selenium, and Maven."
+            ]
+        },
+        {
+            "company": "Vega Innovations and Technoconsultants Private Limited",
+            "role": "Product Development Intern",
+            "badge": "Intern",
+            "duration": "May 2021 to October 2021",
+            "points": [
+                "Developed PoCs for MQTT-based infrastructure and central log aggregation systems using Elasticsearch, Kibana, and Filebeat."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "DirecTV",
+            "badge": "Workday Integrations",
+            "description": "Consultancy work for ATnT-DirecTV"
+        },
+        {
+            "name": "D. E. Shaw",
+            "badge": "Scrambling Tool",
+            "description": "Worked on Data scrambling tool for D. E. Shaw"
+        },
+        {
+            "name": "Swiftpoint",
+            "badge": "Workday Integrations",
+            "description": "Enhanced and supported one-stop Workday Integrations Automated Testing tool"
+        }
+    ],
+    "skills": {
+        "webDevelopment": {
+            "title": "Web Development",
+            "skills": [
+                "JavaScript",
+                "React.js",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "GraphQL",
+                "Git"
+            ]
+        },
+        "dataEngineering": {
+            "title": "Data Engineering",
+            "skills": [
+                "Python",
+                "SQL",
+                "Azure"
+            ]
+        },
+        "blockchain": {
+            "title": "Blockchain",
+            "skills": [
+                "Solidity",
+                "Web3.js",
+                "Hyperledger Fabric"
+            ]
+        }
+    },
+    "certifications": [
+        {
+            "name": "AWS Certified Cloud Practitioner",
+            "icon": "FaAws",
+            "badge": "AWS",
+            "validity": "Valid till 2025"
+        },
+        {
+            "name": "Azure Certified Data Engineer",
+            "icon": "FaMicrosoft",
+            "badge": "Azure",
+            "validity": "Valid till November 2024"
+        },
+        {
+            "name": "Workday Integrations",
+            "icon": "Workday",
+            "badge": "Workday",
+            "validity": "Valid till November 2024"
+        }
+    ],
+    "education": [
+        {
+            "institute": "International Institute Of Information Technology, Hinjewadi, Pune, India",
+            "instituteWebPageLink": "https: //www.isquareit.edu.in/",
+            "timeline": "June 2018 - June 2022",
+            "grade": "9.31/10 GGPA",
+            "degree": "Bachelor of Computer Engineering (Hons. Internet of Things)",
+            "extracurricular": [
+                "Played key roles in the Computer Engineering Student Association, culminating as Chairman.",
+                "Organized numerous technical and social events.",
+                "Managed team projects and deadlines effectively."
+            ]
+        }
+    ],
+    "accolades": [
+        "Recognized for outstanding communication and presentation skills.",
+        "Participated in the 'WatsonX AI Enhancement Challenge', demonstrating innovative applications of AI in the HR domain."
+    ],
+    "contactInfo": {
+        "email": "iatharvkulkarni@gmail.com",
+        "phone": "+91 8149991083",
+        "website": {
+            "link": "https://kulkarniatharv.github.io/",
+            "text": "kulkarniatharv.github.io"
+        },
+        "github": {
+            "link": "https://github.com/kulkarniatharv",
+            "text": "/kulkarniatharv"
+        },
+        "linkedin": {
+            "link": "https://kulkarniatharv.github.io/",
+            "text": "/in/kulkarniatharv"
+        }
+    }
+}
