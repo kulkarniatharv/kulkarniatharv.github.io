@@ -31,7 +31,7 @@ const ProjectMetadata = ({ project }) => {
 
   return (
     <MotionBox p={4} m={4} {...animationSettings}>
-      <Heading as="h1" size="xl" mb={2}>
+      <Heading as="h1" size="2xl" mb={2}>
         {title}
       </Heading>
       <Box my="10">
