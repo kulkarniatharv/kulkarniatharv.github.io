@@ -75,19 +75,22 @@
             "name": "AWS Certified Cloud Practitioner",
             "icon": "FaAws",
             "badge": "AWS",
-            "validity": "Valid till 2025"
+            "validity": "Valid till 2025",
+            "verificationURL": "../assets/AWS Certified Cloud Practitioner certificate - Atharv Kulkarni.pdf"
         },
         {
             "name": "Azure Certified Data Engineer",
             "icon": "FaMicrosoft",
             "badge": "Azure",
-            "validity": "Valid till November 2024"
+            "validity": "Valid till November 2024",
+            "verificationURL": "https://learn.microsoft.com/api/credentials/share/en-us/AtharvKulkarni-4919/FF655FDDEBCAF9DA?sharingId=451B79E3BF4FB6EA"
         },
         {
             "name": "Workday Integrations",
             "icon": "Workday",
             "badge": "Workday",
-            "validity": "Valid till November 2024"
+            "validity": "Valid till November 2024",
+            "verificationURL": ""
         }
     ],
     "education": [

@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 // src/pages/index.js
 import * as React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import {
   Box,
   Text,
@@ -41,34 +42,17 @@ import '../styles/resume.module.scss'
 import aboutMeData from '../data/aboutme.json'
 
 const ResumePage = () => {
-  const downloadPDF = () => {
-    const input = document.getElementById('resume')
-    html2canvas(input, { scrollY: -window.scrollY }).then(canvas => {
-      const imgData = canvas.toDataURL('image/png')
-
-      // Calculate the number of pages.
-      const imgWidth = 210 // A4 size at 72 dpi in mm
-      const pageHeight = 295 // A4 size at 72 dpi in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-      let heightLeft = imgHeight
-
-      const pdf = new jsPDF('p', 'mm')
-      let position = 0
-
-      // Add new pages and split the content if it's longer than one page.
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-      heightLeft -= pageHeight
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight
-        pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-        heightLeft -= pageHeight
+  const ResumePDFData = useStaticQuery(graphql`
+    query {
+      pdfs: file(relativePath: { eq: "Website Resume - Atharv Kulkarni.pdf" }) {
+        name
+        publicURL
       }
+    }
+  `)
 
-      pdf.save('Resume-Atharv_Kulkarni.pdf')
-    })
-  }
+  const ResumePDF = ResumePDFData.pdfs.publicURL
+  const ResumePDFName = ResumePDFData.pdfs.name
 
   return (
     <Layout>
@@ -80,12 +64,18 @@ const ResumePage = () => {
         <Box mb={4} textAlign="right">
           <Button
             leftIcon={<MdFileDownload />}
-            onClick={downloadPDF}
             colorScheme="teal"
             size="md"
             className="download-pdf-button"
           >
-            Download as PDF
+            <Link
+              href={ResumePDF}
+              target="_blank"
+              style={{ textDecoration: 'none' }}
+              download={ResumePDFName}
+            >
+              Download as PDF
+            </Link>
           </Button>
         </Box>
         <Box
