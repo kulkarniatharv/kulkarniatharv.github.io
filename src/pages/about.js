@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import React, { useState, useRef } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import {
   Box,
   Flex,
@@ -93,8 +94,22 @@ const ICONS_MAP = {
 }
 
 const SectionComponent = React.forwardRef(
-  ({ section, isActive, onScroll, onWheel }, ref) =>
-    isActive ? (
+  ({ section, isActive, onScroll, onWheel }, ref) => {
+    const AWSCertData = useStaticQuery(graphql`
+      query {
+        pdfs: file(
+          relativePath: {
+            eq: "AWS Certified Cloud Practitioner certificate - Atharv Kulkarni.pdf"
+          }
+        ) {
+          publicURL
+        }
+      }
+    `)
+
+    const AWSCertPDF = AWSCertData.pdfs.publicURL
+
+    return isActive ? (
       <motion.div
         ref={ref}
         key={section.id}
@@ -213,6 +228,21 @@ const SectionComponent = React.forwardRef(
                   </Badge>
                   <Text fontWeight="bold">{entry.name}</Text>
                   <Text fontSize="sm">{entry.validity}</Text>
+                  {entry.verificationURL !== '' ? (
+                    <Button colorScheme="purple" variant="outline">
+                      <ChakraLink
+                        href={
+                          entry.badge === 'AWS'
+                            ? AWSCertPDF
+                            : entry.verificationURL
+                        }
+                        target="_blank"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        Verify
+                      </ChakraLink>
+                    </Button>
+                  ) : null}
                 </Box>
               ))}
             </SimpleGrid>
@@ -357,6 +387,7 @@ const SectionComponent = React.forwardRef(
         )}
       </motion.div>
     ) : null
+  }
 )
 
 const TimelineItem = ({ company, role, duration, points }) => (

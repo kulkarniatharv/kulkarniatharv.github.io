@@ -23,6 +23,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: slug,
     })
   }
+
+  // Check node type and exclude PDF files
+  if (
+    node.internal.type === 'File' &&
+    node.internal.mediaType === 'application/pdf'
+  ) {
+  }
 }
 
 exports.createPages = async ({ graphql, actions }) => {
