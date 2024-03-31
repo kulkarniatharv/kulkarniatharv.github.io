@@ -1,18 +1,18 @@
 ---
-title: "My Portfolio Website"
-slug: "portfolio-website"
+title: "Firewood"
+slug: "firewood"
 sections: ["web-development"]
 imageurl: "../assets/images/bl.jpg"
-description: "Know more about how I developed my portfolio website  website website website website website website website"
+description: "Know more about how I developed my portfolio website website website website website website website website"
+notableProject: true
 techStack: ["Gatsby.js", "Chakra UI"]
 duration: ""
 role: ""
 repoLink: "https://github.com/"
 liveLink: "https://kulkarniatharv.github.io/"
-notableProject: true
 cardBadge: "New"
 cardBadgeColorScheme: "teal"
-onProjectsPage: true
+onProjectsPage: false
 ---
 
 # Introduction

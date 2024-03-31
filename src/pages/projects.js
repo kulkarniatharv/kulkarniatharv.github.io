@@ -2,7 +2,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Projects from '../components/Projects'
+import Projects from '../components/ProjectComponents/Projects'
 
 export default function ProjectsPage({ data }) {
   return (
@@ -20,8 +20,17 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
-          slug
+          description
           sections
+          slug
+          cardBadge
+          cardBadgeColorScheme
+          onProjectsPage
+          imageurl {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
         }
       }
     }

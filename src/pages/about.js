@@ -12,8 +12,8 @@ import {
   Button,
   SimpleGrid,
   Badge,
-  Link as ChakraLink,
   Icon,
+  Grid,
 } from '@chakra-ui/react'
 import {
   SiJavascript,
@@ -272,9 +272,9 @@ const SectionComponent = React.forwardRef(
                       </i>
                       <Text fontSize="sm">{entry.timeline}</Text>
                     </Text>
-                    <Text fontSize="sm">
+                    {/* <Text fontSize="sm">
                       <strong>Grade:</strong> {entry.grade}
-                    </Text>
+                    </Text> */}
                     <Text fontWeight="bold" fontSize="sm">
                       Extracurricular Leadership:
                     </Text>
@@ -446,14 +446,71 @@ const About = () => {
 
   return (
     <Layout>
-      <Flex m={10} className={styles.aboutPage}>
+      <Box maxW="1500px" m="0 auto" p={5}>
+        <Grid
+          templateColumns={['repeat(1, 1fr)', '1fr 3fr']} // 1 column on small screens, 3 columns on larger screens
+          gap={4} // Space between grid items
+        >
+          {/* <Box className={styles.toc}> */}
+          <Box display="flex" flexDirection="column" alignItems="center">
+            {/* Table of Contents */}
+            {sections.map((section, index) => (
+              <Button
+                key={section.id}
+                variant={index === activeSection ? 'solid' : 'ghost'}
+                // colorScheme={index === activeSection ? 'purple' : 'blue'}
+                colorScheme="gray"
+                _hover={{ bg: 'gray.700', color: 'white' }}
+                w="100%"
+                maxWidth="280px"
+                justifyContent="center"
+                textAlign="center"
+                textDecoration="none"
+                isActive={index === activeSection}
+                onClick={() => setActiveSection(index)}
+                style={{
+                  opacity: isSectionActive(index) ? 1 : 0.9,
+                  transform:
+                    index === activeSection ? 'scale(1.0)' : 'scale(0.9)',
+                  backgroundColor: index === activeSection ? 'gray.900' : '',
+                }}
+                transition="transform 0.2s ease-in-out, filter 0.2s ease-in-out"
+                size="lg"
+                mb={3}
+              >
+                {section.title}
+              </Button>
+            ))}
+          </Box>
+
+          {/* <Box px={10} mx={10} className={styles.content}> */}
+          <Box display="flex">
+            <AnimatePresence>
+              {sections.map((section, index) => (
+                <SectionComponent
+                  key={section.id}
+                  section={section}
+                  isActive={index === activeSection}
+                  // onScroll={handleScroll}
+                  onWheel={handleWheel}
+                  ref={sectionRefs.current[index]} // Pass the ref for the section
+                />
+              ))}
+            </AnimatePresence>
+          </Box>
+        </Grid>
+      </Box>
+
+      {/* <Flex m={10} className={styles.aboutPage}>
         <Box className={styles.toc}>
-          {/* Table of Contents */}
+          {/* Table of Contents 
           {sections.map((section, index) => (
             <Button
               key={section.id}
-              variant={index === activeSection ? 'solid' : 'outline'}
-              colorScheme={index === activeSection ? 'purple' : 'blue'}
+              variant={index === activeSection ? 'solid' : 'ghost'}
+              // colorScheme={index === activeSection ? 'purple' : 'blue'}
+              colorScheme="gray"
+              _hover={{ bg: 'gray.700', color: 'white' }}
               w="100%"
               maxWidth="280px"
               justifyContent="center"
@@ -465,6 +522,7 @@ const About = () => {
                 opacity: isSectionActive(index) ? 1 : 0.9,
                 transform:
                   index === activeSection ? 'scale(1.0)' : 'scale(0.9)',
+                backgroundColor: index === activeSection ? 'gray.900' : '',
               }}
               transition="transform 0.2s ease-in-out, filter 0.2s ease-in-out"
               size="lg"
@@ -489,7 +547,7 @@ const About = () => {
             ))}
           </AnimatePresence>
         </Box>
-      </Flex>
+      </Flex> */}
     </Layout>
   )
 }

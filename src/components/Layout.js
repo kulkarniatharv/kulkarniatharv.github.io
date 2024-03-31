@@ -36,69 +36,71 @@ const globalStyles = css`
   }
 `
 
-const Layout = ({ children }) => {
-  const { colorMode, toggleColorMode } = useContext(ColorModeContext)
-  const isLightMode = colorMode === 'light'
+const Layout = ({ children }) => (
+  // const { colorMode, toggleColorMode } = useContext(ColorModeContext)
+  // const isLightMode = colorMode === 'light'
 
-  const overlayContainerClass = `overlay-container ${
-    isLightMode ? '' : 'dark-mode'
-  }`
+  // const overlayContainerClass = `overlay-container ${
+  //   isLightMode ? '' : 'dark-mode'
+  // }`
 
-  useEffect(() => {
-    // Ensure GSAP animations only run in the browser
-    if (typeof window !== 'undefined') {
-      // Function to animate each gradient layer
-      const animateGradientLayer = selector => {
-        // Randomize initial positions
-        const initialX = Math.random() * 400 - 100
-        const initialY = Math.random() * 400 - 100
+  // useEffect(() => {
+  //   // Ensure GSAP animations only run in the browser
+  //   if (typeof window !== 'undefined') {
+  //     // Function to animate each gradient layer
+  //     const animateGradientLayer = selector => {
+  //       // Randomize initial positions
+  //       const initialX = Math.random() * 400 - 100
+  //       const initialY = Math.random() * 400 - 100
 
-        gsap.to(selector, {
-          backgroundPosition: `${initialX}% ${initialY}%`,
-          duration: 3, // Duration of one loop of the animation
-          repeat: 1, // 1 time
-          yoyo: true, // Go back and forth
-          ease: 'none', // No easing for constant speed
-          delay: 2,
-        })
-      }
+  //       gsap.to(selector, {
+  //         backgroundPosition: `${initialX}% ${initialY}%`,
+  //         duration: 3, // Duration of one loop of the animation
+  //         repeat: 1, // 1 time
+  //         yoyo: true, // Go back and forth
+  //         ease: 'none', // No easing for constant speed
+  //         delay: 2,
+  //       })
+  //     }
 
-      // Apply the function to each gradient layer
-      animateGradientLayer('.gradient-layer.one')
-      animateGradientLayer('.gradient-layer.two')
-    }
-  }, [])
+  //     // Apply the function to each gradient layer
+  //     animateGradientLayer('.gradient-layer.one')
+  //     animateGradientLayer('.gradient-layer.two')
+  //   }
+  // }, [])
 
-  return (
-    <>
-      {/* this is done so that font on every page is the same */}
-      <CSSReset />
-      <Global styles={globalStyles} />
-      <div className={overlayContainerClass}>
-        <div
+  <>
+    {/* this is done so that font on every page is the same */}
+    <CSSReset />
+    <Global styles={globalStyles} />
+    {/* <div className={overlayContainerClass}> */}
+    <div>
+      {/* <div
           className={`gradient-layer one ${isLightMode ? 'light' : 'dark'}`}
         />
         <div
           className={`gradient-layer two ${isLightMode ? 'light' : 'dark'}`}
-        />
-        <Box className={layoutStyles.layout}>
-          <Header />
-          <Box
-            flexGrow={1}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            overflow="auto"
-            minHeight="calc(100vh - (100px + 100px))" // Adjust 'headerHeight' and 'footerHeight' with actual values
-          >
-            {children}
-            <ScrollToTopButton />
-          </Box>
+        /> */}
+
+      <Box className={layoutStyles.layout}>
+        <Header />
+        <Box
+          flexGrow={1}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          overflow="auto"
+          minHeight="calc(100vh - (100px + 100px))" // Adjust 'headerHeight' and 'footerHeight' with actual values
+        >
+          {children}
+          <ScrollToTopButton />
+        </Box>
+        <Box as="footer" role="contentinfo" py={6}>
           <Footer />
         </Box>
-      </div>
-    </>
-  )
-}
+      </Box>
+    </div>
+  </>
+)
 
 export default Layout

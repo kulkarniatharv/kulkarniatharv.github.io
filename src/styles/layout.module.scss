@@ -5,6 +5,21 @@
     position: relative;
 }
 
+// dotted background
+.layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogICAgPGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjEiIGZpbGw9ImJsYWNrIiAvPg0KICA8L3N2Zz4NCiAg);
+    background-repeat: repeat;
+    opacity: 0.05;
+    /* Adjust this value to change the background opacity */
+    z-index: -1;
+}
+
 @media only screen and (max-width: 768px) {
     .layout {
         flex-direction: column;

@@ -59,7 +59,14 @@ const ProjectDetail = ({ project }) => {
       const id = slugify(children, { lower: true })
       return (
         <Element name={id} className="element">
-          <Heading as="h1" size="2xl" mt={6} mb={4} id={id} color="#3a3a3a">
+          <Heading
+            as="h1"
+            fontSize="2rem"
+            mt={14}
+            mb={4}
+            id={id}
+            color="#3a3a3a"
+          >
             {children}
           </Heading>
         </Element>
@@ -69,7 +76,14 @@ const ProjectDetail = ({ project }) => {
       const id = slugify(children, { lower: true })
       return (
         <Element name={id} className="element">
-          <Heading as="h2" size="xl" mt={4} mb={3} id={id} color="#4a4a4a">
+          <Heading
+            as="h2"
+            fontSize="1.5rem"
+            mt={10}
+            mb={4}
+            id={id}
+            color="#4a4a4a"
+          >
             {children}
           </Heading>
         </Element>
@@ -79,7 +93,7 @@ const ProjectDetail = ({ project }) => {
       const id = slugify(children, { lower: true })
       return (
         <Element name={id} className="element">
-          <Heading as="h3" size="lg" mt={4} mb={3} id={id}>
+          <Heading as="h3" fontSize="1.25rem" mt={8} mb={3} id={id}>
             {children}
           </Heading>
         </Element>
@@ -89,7 +103,7 @@ const ProjectDetail = ({ project }) => {
       const id = slugify(children, { lower: true })
       return (
         <Element name={id} className="element">
-          <Heading as="h4" size="md" mt={4} mb={2} id={id}>
+          <Heading as="h4" fontSize="1rem" mt={4} mb={2} id={id}>
             {children}
           </Heading>
         </Element>
@@ -99,7 +113,7 @@ const ProjectDetail = ({ project }) => {
       const id = slugify(children, { lower: true })
       return (
         <Element name={id} className="element">
-          <Heading as="h5" size="md" mt={4} mb={2} id={id}>
+          <Heading as="h5" fontSize="1rem" mt={4} mb={2} id={id}>
             {children}
           </Heading>
         </Element>
@@ -109,7 +123,7 @@ const ProjectDetail = ({ project }) => {
       const id = slugify(children, { lower: true })
       return (
         <Element name={id} className="element">
-          <Heading as="h6" size="md" mt={4} mb={2} id={id}>
+          <Heading as="h6" fontSize="1rem" mt={4} mb={2} id={id}>
             {children}
           </Heading>
         </Element>

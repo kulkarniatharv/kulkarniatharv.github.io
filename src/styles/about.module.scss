@@ -27,7 +27,7 @@ $breakpoint: 768px; // Example breakpoint for mobile view
     // box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     // border-radius: 10px;
     margin: auto; // Center the content block horizontally
-    max-height: calc(100vh - (10vh + 10vh + 5vh)); // calc(100vh - (headerHeight + footerHeight + additionalPadding));
+    // max-height: calc(100vh - (10vh + 10vh + 5vh)); // calc(100vh - (headerHeight + footerHeight + additionalPadding));
     overflow-y: auto; // Allows for scrolling within the content area if necessary
 
     h2,

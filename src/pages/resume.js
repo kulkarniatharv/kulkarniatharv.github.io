@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 // src/pages/index.js
 import * as React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import {
   Box,
   Text,
@@ -41,58 +42,47 @@ import '../styles/resume.module.scss'
 import aboutMeData from '../data/aboutme.json'
 
 const ResumePage = () => {
-  const downloadPDF = () => {
-    const input = document.getElementById('resume')
-    html2canvas(input, { scrollY: -window.scrollY }).then(canvas => {
-      const imgData = canvas.toDataURL('image/png')
-
-      // Calculate the number of pages.
-      const imgWidth = 210 // A4 size at 72 dpi in mm
-      const pageHeight = 295 // A4 size at 72 dpi in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-      let heightLeft = imgHeight
-
-      const pdf = new jsPDF('p', 'mm')
-      let position = 0
-
-      // Add new pages and split the content if it's longer than one page.
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-      heightLeft -= pageHeight
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight
-        pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-        heightLeft -= pageHeight
+  const ResumePDFData = useStaticQuery(graphql`
+    query {
+      pdfs: file(relativePath: { eq: "Website Resume - Atharv Kulkarni.pdf" }) {
+        name
+        publicURL
       }
+    }
+  `)
 
-      pdf.save('Resume-Atharv_Kulkarni.pdf')
-    })
-  }
+  const ResumePDF = ResumePDFData.pdfs.publicURL
+  const ResumePDFName = ResumePDFData.pdfs.name
 
   return (
     <Layout>
-      <Container
-        maxW="container.md"
-        p={4}
-        maxHeight="calc(100vh - (100px + 100px))"
-      >
+      <Container maxW="container.md" p={4}>
         <Box mb={4} textAlign="right">
           <Button
             leftIcon={<MdFileDownload />}
-            onClick={downloadPDF}
-            colorScheme="teal"
+            colorScheme="gray"
+            variant="outline"
+            _hover={{ bg: 'gray.700', color: 'white' }}
             size="md"
+            borderWidth="1px"
+            borderColor="black"
             className="download-pdf-button"
           >
-            Download as PDF
+            <Link
+              href={ResumePDF}
+              target="_blank"
+              style={{ textDecoration: 'none' }}
+              download={ResumePDFName}
+            >
+              Download as PDF
+            </Link>
           </Button>
         </Box>
         <Box
           as="article"
           id="resume"
           p={4}
-          boxShadow="xl"
+          boxShadow="2xl"
           borderRadius="md"
           bg="white"
         >
@@ -117,12 +107,12 @@ const ResumePage = () => {
                     </Text>
                   </Box>
 
-                  <Box mb={1}>
+                  {/* <Box mb={1}>
                     <Text fontSize="sm">
                       <Icon as={FaPhoneAlt} mx={4} />
                       {aboutMeData.contactInfo.phone}
                     </Text>
-                  </Box>
+                  </Box> */}
 
                   <Box mb={1}>
                     <Link
@@ -321,7 +311,7 @@ const ResumePage = () => {
                   <Text fontWeight="bold">{entry.institute}</Text>
                   <Text fontSize="sm">{entry.degree}</Text>
                   <Text fontSize="sm">{entry.timeline}</Text>
-                  <Text fontSize="sm">Grade: {entry.grade}</Text>
+                  {/* <Text fontSize="sm">Grade: {entry.grade}</Text> */}
                 </Box>
               ))}
             </VStack>

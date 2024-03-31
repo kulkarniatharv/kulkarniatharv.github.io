@@ -2,7 +2,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Box, Grid } from '@chakra-ui/react'
-import ProjectCard from '../components/ProjectCard'
+import ProjectCard from '../components/ProjectComponents/ProjectCard'
 
 export const query = graphql`
   query ($section: String!) {

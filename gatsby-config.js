@@ -68,6 +68,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pdfs`,
+        path: `${__dirname}/src/assets/pdfs`,
+      },
+    },
+    {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
         isResettingCSS: true,

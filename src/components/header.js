@@ -2,7 +2,14 @@
 // src/components/header.js
 
 import React, { useContext } from 'react'
-import { Flex, Box, Button, Icon, Link as ChakraLink } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Button,
+  Icon,
+  Grid,
+  Link as ChakraLink,
+} from '@chakra-ui/react'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
 import ColorModeContext from '../contexts/ColorModeContext'
@@ -28,17 +35,18 @@ const Header = props => {
   }
 
   return (
-    <Flex
+    <Grid
       as="header"
-      py={4}
       px={8}
-      justifyContent="space-between"
+      pt={4}
+      templateColumns={{ base: 'repeat(1, 1fr)', md: '3fr 2fr' }}
+      gap={4}
       alignItems="center"
-      flexWrap="wrap"
-      maxHeight="100px"
+      maxWidth="1300px"
+      justifyContent="center"
+      mx="auto"
     >
-      <Box>
-        {/* <Box boxSize="100px">{SvgLogo} </Box> */}
+      <Box justifySelf={{ base: 'center', md: 'start' }}>
         <img
           width="100px"
           src={
@@ -46,92 +54,58 @@ const Header = props => {
               ? data.logoLight.publicURL
               : data.logoDark.publicURL
           }
-          alt="Atharv Kulkarni Logo"
+          alt="Signature logo"
         />
       </Box>
-      <Box>
-        {/* <Navbar /> */}
-        <Flex alignItems="center" flexWrap="wrap">
-          <ChakraLink as={GatsbyLink} to="/" px={2} py={1} rounded="md">
-            <Button
-              colorScheme="purple"
-              variant="ghost"
-              _hover={{
-                bg: 'purple.500',
-                color: 'white',
-              }}
-              width="100px"
-            >
-              Home
-            </Button>
-          </ChakraLink>
-          <ChakraLink
-            as={GatsbyLink}
-            to="/about"
-            px={2}
-            py={1}
-            rounded="md"
-            textAlign="center"
+      {/* Conditional rendering for alignment and column structure */}
+      <Grid
+        templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
+        gap={4}
+        colSpan={4}
+        justifyItems="center"
+      >
+        <ChakraLink as={GatsbyLink} to="/" px={2} py={1} rounded="md">
+          <Button
+            colorScheme="gray"
+            variant="ghost"
+            _hover={{ bg: 'gray.700', color: 'white' }}
+            width="100%"
           >
-            <Button
-              colorScheme="purple"
-              variant="ghost"
-              _hover={{
-                bg: 'purple.500',
-                color: 'white',
-              }}
-              width="100px"
-            >
-              About Me
-            </Button>
-          </ChakraLink>
-          <ChakraLink as={GatsbyLink} to="/projects" px={2} py={1} rounded="md">
-            <Button
-              colorScheme="purple"
-              variant="ghost"
-              _hover={{
-                bg: 'purple.500',
-                color: 'white',
-              }}
-              width="100px"
-            >
-              Projects
-            </Button>
-          </ChakraLink>
-          {/* <ChakraLink as={GatsbyLink} to="/blog" px={2} py={1} rounded="md">
-            <Button
-              colorScheme="purple"
-              variant="ghost"
-              _hover={{
-                bg: 'purple.500',
-                color: 'white',
-              }}
-            >
-              Blog
-            </Button>
-          </ChakraLink> */}
-          <ChakraLink as={GatsbyLink} to="/resume" px={2} py={1} rounded="md">
-            <Button
-              colorScheme="purple"
-              variant="ghost"
-              _hover={{
-                bg: 'purple.500',
-                color: 'white',
-              }}
-            >
-              Resume
-            </Button>
-          </ChakraLink>
-          {/* <Button variant="ghost" onClick={toggleColorModeHandler}>
-            {colorMode === 'light' ? (
-              <Icon as={MoonIcon} boxSize="6" />
-            ) : (
-              <Icon as={SunIcon} boxSize="6" />
-            )}
-          </Button> */}
-        </Flex>
-      </Box>
-    </Flex>
+            Home
+          </Button>
+        </ChakraLink>
+        <ChakraLink as={GatsbyLink} to="/about" px={2} py={1} rounded="md">
+          <Button
+            colorScheme="gray"
+            variant="ghost"
+            _hover={{ bg: 'gray.700', color: 'white' }}
+            width="100%"
+          >
+            About Me
+          </Button>
+        </ChakraLink>
+        <ChakraLink as={GatsbyLink} to="/projects" px={2} py={1} rounded="md">
+          <Button
+            colorScheme="gray"
+            variant="ghost"
+            _hover={{ bg: 'gray.700', color: 'white' }}
+            width="100%"
+          >
+            Projects
+          </Button>
+        </ChakraLink>
+        <ChakraLink as={GatsbyLink} to="/resume" px={2} py={1} rounded="md">
+          <Button
+            colorScheme="gray"
+            variant="ghost"
+            _hover={{ bg: 'gray.700', color: 'white' }}
+            width="100%"
+          >
+            Resume
+          </Button>
+        </ChakraLink>
+      </Grid>
+    </Grid>
   )
 }
 

@@ -1,4 +1,31 @@
 {
+    "homeScreenDescription": "I am a technology enthusiast and a professional web developer with a passion for creating solutions that make a real-world impact. Skilled in React, Chakra UI, and Gatsby, I strive to build applications that are both efficient and user-friendly.",
+    "homeScreenProfileDetails": {
+        "Current Role": "Associate Developer @ IBM",
+        "Currently Looking for": "Role in Data Science, Data Engineering or Robotics",
+        "Published Research": {
+            "linkText": "IEEE - Blockchain-Based User-Centric Electronic Health Record Management System",
+            "link": "https://ieeexplore.ieee.org/document/9935834"
+        },
+        "Experience": "Over 1.5 years at IBM",
+        "Cloud Certifications": [
+            {
+                "linkText": "AWS Certified Cloud Practitioner",
+                "link": "../assets/pdfs/AWS Certified Cloud Practitioner certificate - Atharv Kulkarni.pdf"
+            },
+            {
+                "linkText": "Azure Certified Data Engineer",
+                "link": "https://learn.microsoft.com/api/credentials/share/en-us/AtharvKulkarni-4919/FF655FDDEBCAF9DA?sharingId=451B79E3BF4FB6EA"
+            }
+        ],
+        "Badges": [
+            "Google Cloud Machine Learning in the Enterprise",
+            "Google Cloud Production Machine Learning Systems",
+            "TensorFlow on Google Cloud",
+            "ML Pipelines on Google Cloud",
+            "find more at ____"
+        ]
+    },
     "workExperience": [
         {
             "company": "IBM India Private Limited",
@@ -75,27 +102,29 @@
             "name": "AWS Certified Cloud Practitioner",
             "icon": "FaAws",
             "badge": "AWS",
-            "validity": "Valid till 2025"
+            "validity": "Valid till 2025",
+            "verificationURL": "../assets/AWS Certified Cloud Practitioner certificate - Atharv Kulkarni.pdf"
         },
         {
             "name": "Azure Certified Data Engineer",
             "icon": "FaMicrosoft",
             "badge": "Azure",
-            "validity": "Valid till November 2024"
+            "validity": "Valid till November 2024",
+            "verificationURL": "https://learn.microsoft.com/api/credentials/share/en-us/AtharvKulkarni-4919/FF655FDDEBCAF9DA?sharingId=451B79E3BF4FB6EA"
         },
         {
             "name": "Workday Integrations",
             "icon": "Workday",
             "badge": "Workday",
-            "validity": "Valid till November 2024"
+            "validity": "Valid till November 2024",
+            "verificationURL": ""
         }
     ],
     "education": [
         {
-            "institute": "International Institute Of Information Technology, Hinjewadi, Pune, India",
-            "instituteWebPageLink": "https: //www.isquareit.edu.in/",
+            "institute": "Savitribai Phule Pune University (SPPU), Pune, India",
+            "instituteWebPageLink": "http://www.unipune.ac.in/",
             "timeline": "June 2018 - June 2022",
-            "grade": "9.31/10 GGPA",
             "degree": "Bachelor of Computer Engineering (Hons. Internet of Things)",
             "extracurricular": [
                 "Played key roles in the Computer Engineering Student Association, culminating as Chairman.",
@@ -109,8 +138,7 @@
         "Participated in the 'WatsonX AI Enhancement Challenge', demonstrating innovative applications of AI in the HR domain."
     ],
     "contactInfo": {
-        "email": "iatharvkulkarni@gmail.com",
-        "phone": "+91 8149991083",
+        "email": "iatharvkulkarni at gmail dot com",
         "website": {
             "link": "https://kulkarniatharv.github.io/",
             "text": "kulkarniatharv.github.io"
@@ -120,8 +148,12 @@
             "text": "/kulkarniatharv"
         },
         "linkedin": {
-            "link": "https://kulkarniatharv.github.io/",
+            "link": "https://linkedin.com/in/kulkarniatharv/",
             "text": "/in/kulkarniatharv"
+        },
+        "twitter": {
+            "link": "https://twitter.com/iatharvkulkarni",
+            "text": "/iatharvkulkarni"
         }
     }
 }
