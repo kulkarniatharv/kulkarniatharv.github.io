@@ -76,15 +76,6 @@ const ResumePage = () => {
             >
               Download as PDF
             </Link>
-            >
-            <Link
-              href={ResumePDF}
-              target="_blank"
-              style={{ textDecoration: 'none' }}
-              download={ResumePDFName}
-            >
-              Download as PDF
-            </Link>
           </Button>
         </Box>
         <Box

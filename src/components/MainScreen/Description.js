@@ -73,7 +73,6 @@ const Description = () => {
               layout="fixed"
               width={150}
               height={150}
-              style={{ zIndex: '1000' }}
             />
           </Box>
         </Grid>

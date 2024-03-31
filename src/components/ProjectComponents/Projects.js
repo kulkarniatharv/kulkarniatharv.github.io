@@ -27,10 +27,6 @@ const Projects = props => {
         gap={4} // Space between grid items
       >
         <Box mt={10}>
-          {/* <Heading as="h1" fontSize="xl" textAlign="center">
-            
-          </Heading> */}
-
           <Box mb={5} textAlign="center">
             <Box position="relative" display="inline-block">
               <Heading as="h1" size="lg">

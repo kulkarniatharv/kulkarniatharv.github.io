@@ -1,14 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
-import {
-  Box,
-  Text,
-  VStack,
-  Heading,
-  useTheme,
-  List,
-  ListIcon,
-  ListItem,
-} from '@chakra-ui/react'
+import { Box, Text, Heading, List, ListIcon, ListItem } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
 const TimelineItem = ({ company, role, duration, points }) => (
@@ -31,7 +23,6 @@ const TimelineItem = ({ company, role, duration, points }) => (
       <Text fontSize="sm" color="gray.600" mb={4}>
         {duration}
       </Text>
-      {/* <VStack align="start"> */}
       <List spacing={3} mt={6}>
         {points.map((point, index) => (
           <ListItem key={index} fontSize="sm">
