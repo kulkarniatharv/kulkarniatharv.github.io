@@ -17,7 +17,9 @@ onProjectsPage: true
 
 # Introduction
 
-Hey everyone! Today, I want to share with you the story of how I built my own portfolio website. This isn't just any website; it's a personal project that showcases what I love doing and what I've achieved in my tech career. If you're into coding, tech, or just love creating cool stuff, you might find this interesting. So, let's get started!
+As a developer, having a portfolio website is essential to showcase one's skills, experience, and accomplishments. It's a platform to demonstrate my expertise, share my projects, and connect with potential employers or collaborators. In this blog post, I'll take you through the technical journey of building my portfolio website using Gatsby.js. I'll dive into the details of each component, from setting up the project to deploying it on GitHub Pages.
+
+My portfolio website is designed to be a one-stop-shop for anyone interested in learning more about me and my work. It features a home page, an about me page, a projects page, and a resume page. Each page is carefully crafted to provide a seamless user experience, and I'll explain how I achieved this using Gatsby.js.
 
 # Home Page
 

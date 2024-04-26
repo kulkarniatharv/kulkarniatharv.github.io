@@ -194,7 +194,7 @@ const ProjectDetail = ({ project }) => {
           backgroundColor: '#8D63FF',
         },
       }}
-      maxW="800px"
+      maxW="1000px"
     >
       <article>
         <ReactMarkdown

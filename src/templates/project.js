@@ -107,7 +107,7 @@ const ProjectTemplate = ({ data }) => {
   const { markdownRemark } = data
   const [headings, setHeadings] = React.useState([])
 
-  console.log('headings:', headings)
+  // console.log('headings:', headings)
 
   // const headings = extractHeadings(markdownRemark.rawMarkdownBody)
 
@@ -115,11 +115,11 @@ const ProjectTemplate = ({ data }) => {
     setHeadings(extractHeadingsFromMarkdown(markdownRemark.rawMarkdownBody))
 
     Events.scrollEvent.register('begin', function () {
-      console.log('begin', arguments)
+      // console.log('begin', arguments)
     })
 
     Events.scrollEvent.register('end', function () {
-      console.log('end', arguments)
+      // console.log('end', arguments)
     })
 
     scrollSpy.update()
