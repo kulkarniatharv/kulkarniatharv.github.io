@@ -14,11 +14,6 @@ export const query = graphql`
           title
           slug
           description
-          imageurl {
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
-          }
           sections
         }
       }

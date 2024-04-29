@@ -4,7 +4,7 @@ import { Box, Text, Heading, List, ListIcon, ListItem } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
 const TimelineItem = ({ company, role, duration, points }) => (
-  <Box position="relative" mb={8}>
+  <Box position="relative" mb={5}>
     <Box
       width="2px"
       bg="blue.500"

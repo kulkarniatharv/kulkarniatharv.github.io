@@ -114,11 +114,11 @@ const ProjectTemplate = ({ data }) => {
   React.useEffect(() => {
     setHeadings(extractHeadingsFromMarkdown(markdownRemark.rawMarkdownBody))
 
-    Events.scrollEvent.register('begin', function () {
+    Events.scrollEvent.register('begin', () => {
       // console.log('begin', arguments)
     })
 
-    Events.scrollEvent.register('end', function () {
+    Events.scrollEvent.register('end', () => {
       // console.log('end', arguments)
     })
 
@@ -157,6 +157,10 @@ const ProjectTemplate = ({ data }) => {
         <GridItem colSpan={{ sm: 1, md: 4 }}>
           <ProjectDetail
             project={{ markdown: markdownRemark.rawMarkdownBody }}
+            images={data.markdownRemark.frontmatter.imagesUrl.map(image => ({
+              src: image.relativePath,
+              gatsbyImageData: image.childImageSharp.gatsbyImageData,
+            }))}
             onHeadingsExtracted={setHeadings}
           />
         </GridItem>
@@ -172,7 +176,8 @@ export const query = graphql`
       frontmatter {
         title
         description
-        imageurl {
+        imagesUrl {
+          relativePath
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }

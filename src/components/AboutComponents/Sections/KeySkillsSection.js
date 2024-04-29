@@ -39,11 +39,11 @@ const KeySkillsSection = props => {
   }
 
   return (
-    <Flex id="key-skills" flexDirection="column">
-      <Heading as="h1" size="lg">
+    <Flex id="key-skills" flexDirection="column" mb={5}>
+      <Heading as="h1" size="lg" mb={5}>
         Key Skills
       </Heading>
-      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={5} m={4}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={5} m={4} my={0}>
         {/*  columns={{ sm: 1, md: 2, lg: 3 }} */}
         {Object.keys(aboutMeData.skills).map((entry, index) => (
           <Flex

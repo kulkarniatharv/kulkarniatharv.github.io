@@ -26,11 +26,6 @@ export const query = graphql`
           cardBadge
           cardBadgeColorScheme
           onProjectsPage
-          imageurl {
-            childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
-            }
-          }
         }
       }
     }

@@ -5,23 +5,23 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import aboutMeData from '../../../data/aboutme.json'
 
 const AccoladesSection = props => (
-  <Box flex="1" my={10} id="accolades">
-    <Heading as="h2" size="lg" mt={10}>
+  <Box flex="1" id="accolades">
+    <Heading as="h2" size="lg" mb={5}>
       Accolades
     </Heading>
     {/* Certifications Details */}
 
     <Flex>
-      <Flex flexDirection="column" alignItems="center">
+      {/* <Flex flexDirection="column" alignItems="center">
         <Box
           width="2px"
           height="100%"
           bg="blue.500"
           left="10px" // top="0" bottom="2"
         />
-      </Flex>
+      </Flex> */}
       <Flex px={4}>
-        <List spacing={2} mt={2}>
+        <List spacing={2}>
           {aboutMeData.accolades.map(item => (
             <ListItem>
               <ListIcon as={ChevronRightIcon} color="arrowColor" />

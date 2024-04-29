@@ -2,7 +2,6 @@
 title: "Snap Doc & Ask Privacy Policy"
 slug: "snap-doc-n-ask-privacy-policy"
 sections: ["generative-AI"]
-imageurl: "../assets/images/bl.jpg"
 description: "Snap Doc & Ask Android App Privacy Policy"
 techStack: ["Java", "LLaMA 3"]
 duration: ""
@@ -12,7 +11,9 @@ role: ""
 notableProject: true
 cardBadge: "New"
 cardBadgeColorScheme: "teal"
-onProjectsPage: true
+onProjectsPage: false
+imagesUrl: 
+    -
 ---
 
 # Snap Doc & Ask Privacy Policy

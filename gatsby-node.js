@@ -59,11 +59,6 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             sections
             description
-            imageurl {
-              childImageSharp {
-                gatsbyImageData(layout: FIXED, width: 200, height: 200)
-              }
-            }
           }
         }
       }
@@ -110,4 +105,17 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter {
+      imagesUrl: [File] @fileByRelativePath
+    }
+    type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+  `
+  createTypes(typeDefs)
 }

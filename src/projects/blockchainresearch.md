@@ -1,158 +1,73 @@
 ---
-title: "Blockchain research"
-slug: "blockchain-research"
-sections: ["web-development"]
-imageurl: "../assets/images/bl.jpg"
-description: "Know more about how I developed my portfolio website"
-notableProject: true
-techStack: ["Gatsby.js", "Chakra UI"]
+title: "Transforming Healthcare with Blockchain, IoT, and AI"
+slug: "transforming-healthcare-blockchain-iot-ai"
+sections: ["Published Research"]
+description: "Discover our research on integrating Blockchain, IoT, and AI to enhance healthcare data management. This paper explores innovative solutions for security, privacy, and patient care."
+techStack: ["Blockchain", "IoT", "AI", "Hyperledger Fabric", "Node.js"]
 duration: ""
 role: ""
 repoLink: "https://github.com/"
-liveLink: "https://kulkarniatharv.github.io/"
+liveLink: ""
+notableProject: true
+cardBadge: "New"
+cardBadgeColorScheme: "teal"
+onProjectsPage: true
+imagesUrl:
+  - ../assets/images/blockchain-research/architecture-diagram.jpg
 ---
 
-# Introduction
+# Blockchain-based user-centric electronic health record management system 
 
-Hey everyone! Today, I want to share with you the story of how I built my own portfolio website. This isn't just any website; it's a personal project that showcases what I love doing and what I've achieved in my tech career. If you're into coding, tech, or just love creating cool stuff, you might find this interesting. So, let's get started!
+Today, managing health data is more challenging than ever due to the sensitive nature of the information and the risks associated with data breaches. To address these issues, a new project using Blockchain, IoT (Internet of Things), and AI (Artificial Intelligence) offers a promising solution for improving how we handle medical data. This post will explore the project's approach, the technologies involved, and the benefits it brings to healthcare management.
 
-# Home Page
+[Click here to read the entire research.](https://ieeexplore.ieee.org/document/9935834)
 
-## The Purpose
+## Understanding the Problem
 
-Think of the Home Page as the welcome mat to my digital world. It's the first thing you see when you visit my site. My goal here was to make a great first impression. I wanted to give you a quick glimpse of my skills, achievements, and the tech tools I use.
+Medical records contain highly sensitive information, crucial for patient care but vulnerable to privacy breaches and unauthorized access. Traditional systems, where this data is centrally stored, often lack adequate security measures, leading to potential misuse or data theft. Moreover, patients generally have little control over their medical records, which can lead to inefficiencies and privacy issues.
 
-## The Design
+## Our Solution: A Decentralized Approach
 
-I kept the design simple yet informative. It's like the summary of a good book; it gives you just enough to pique your interest. I made sure it's easy to navigate and pleasing to the eye. After all, we don't want a cluttered welcome mat!
+To tackle these challenges, our project combines three powerful technologies:
 
-## The Content
+- **Blockchain:** Secures data and allows transparent tracking of data access and modifications.
+- **IoT:** Enables real-time monitoring of patient health through connected devices.
+- **AI:** Uses data to predict health issues before they become severe.
 
-Here’s what you’ll find on the Home Page:
+This mix of technologies helps create a system where data is not only secure but also used efficiently to improve patient outcomes.
 
-- **A Brief Introduction:** A quick hello and a few lines about me.
-- **My Cloud Certifications:** I've displayed the certifications I'm proud of. It shows I'm serious about cloud tech.
-- **Tech Stack:** I've listed the technologies I work with. It's like showing the tools in my toolbox. JavaScript, Python - you name it, it's there.
+## How It Works
 
-## Why It Matters
+### The Role of Blockchain
 
-The Home Page sets the tone for the entire website. It's like meeting someone for the first time. You want to make a good impression, right? That's what I aimed for. It's a snapshot of my professional persona and invites you to explore more.
+We use a special type of blockchain called a 'permissioned blockchain' which is more private and secure for healthcare use. This technology ensures that all data entries are permanent and traceable, making it nearly impossible for data to be altered undetected.
 
+### Real-Time Health Monitoring with IoT
 
-# About Me Page
+IoT devices play a crucial role by continuously collecting health data like heart rate or blood pressure. This data is then securely uploaded to the blockchain, ensuring that it remains tamper-proof.
 
-## The Essence of the Page
+### Predictive Health Analytics with AI
 
-The "About Me" page is where I unfold my story. It's more than just a bio; it's a journey through my professional life. Here, I've put together not just what I do, but who I am as a tech professional.
+AI techniques are used to analyze the data collected to predict potential health issues. For example, our system can predict the risk of heart diseases by analyzing ongoing health data, helping doctors act quickly.
 
-## Design and Navigation
+## Implementation Details
 
-I've designed this page to be a smooth scroll through my life. It's like reading a well-organized book where each chapter is a different aspect of my professional life. To make things even easier, I've added a navigation bar. Just like a table of contents, it lets you jump to the section you're most interested in.
+The project utilizes:
 
-## Sections of the Page
+- **Hyperledger Fabric:** A platform for building permissioned blockchains, ensuring that all parties in the network are known and verified, which is crucial for sensitive medical data.
+- **Node.js:** Connects the blockchain with an application interface, making it user-friendly for both patients and healthcare providers.
+- **Smart Contracts:** These are programs stored on the blockchain that automatically execute when predetermined conditions are met. They manage data access and ensure that only authorized users can access or modify the medical records.
 
-Here's what each section offers:
+## Benefits of the System
 
-- **Introduction:** A brief about who I am, beyond just my job title.
-- **Professional Journey:** The path I've taken in my career, the ups and downs, and what I've learned.
-- **Key Skills:** A showcase of my abilities, like a highlight reel of what I bring to the table.
-- **Certifications:** The courses and exams I've aced to prove my expertise.
-- **Education:** Where I've studied and what I've learned.
-- **Notable Projects:** The work I'm most proud of, the challenges I've faced, and how I've solved them.
-- **Accolades:** The achievements and recognition I've received along the way.
+The integration of Blockchain, IoT, and AI enhances the security and efficiency of medical data management in several ways:
 
-## Dynamic Content and Animations
+- **Enhanced Security:** By decentralizing the storage of data, the system reduces the risk of data breaches.
+- **Increased Transparency:** Blockchain provides a clear record of who has accessed or modified the data.
+- **Better Patient Outcomes:** Real-time monitoring and predictive analytics help healthcare providers offer timely and effective treatments.
 
-Each section is more than just text. It's a dynamic display. Think of it as a gallery where every piece of information is carefully placed and presented. Plus, I've added subtle animations. They're like little winks, making the experience more engaging without being too flashy.
+## Conclusion: A Step Toward Future Healthcare
 
-## Why This Page Stands Out
+This project demonstrates how modern technology can be used to solve critical issues in healthcare. By ensuring data security, enhancing patient privacy, and enabling real-time monitoring, the system paves the way for safer and more effective healthcare delivery.
 
-This page is my heart and soul. It's where you get to know me, not just as a coder, but as a person who has grown and evolved in the tech world. It's personal, it's detailed, and it's me.
-
-
-# Projects Page: Showcasing My Digital Creations
-
-## The Concept Behind the Page
-
-The Projects Page is where my work comes to life. It's a gallery of my achievements and innovations. My aim here was not just to list what I've done, but to showcase the journey and thought process behind each project.
-
-## Dynamic and Interactive Design
-
-This page isn't static. It's dynamic and interactive, reflecting the ever-evolving nature of technology and my work. Each project is displayed like a card in a deck, each telling a unique story.
-
-## Organizing the Content
-
-### Categorization
-
-I've organized the projects into sections like Web Development, AI, and Blockchain. It's like sorting books in a library – each has its place, making it easier for you to find what interests you.
-
-### Dynamic Rendering
-
-The beauty of this page lies in its dynamic nature. The content isn't hardcoded. It's rendered dynamically from markdown files. I write the details of a project in a markdown file, and voilà, it appears on the website formatted and styled.
-
-## Technical Magic: Markdown and YAML
-
-### Markdown Files
-
-Each project has its own markdown file. This is where I write the details about the project – the what, why, and how.
-
-### YAML Frontmatter
-
-At the beginning of each markdown file, there's a section called YAML frontmatter. This is where I put the metadata of the project – the title, section category, image URL, and more. Here's an example:
-
-```YAML
-title: "My Portfolio Website"
-sections: ["Web Development"]
-description: "A detailed account of how I built my portfolio website."
-imageurl: "../assets/images/portfolio.jpg"
-```
-
-This metadata is what drives the dynamic rendering of the project cards.
-
-## The Benefits of Gatsby.js
-
-Choosing Gatsby.js for this was a no-brainer. It's perfect for a content-rich website like mine. Gatsby makes it super easy to add new content without having to dive deep into code. Plus, it's great for performance and SEO – critical for any modern website.
-
-## Easy Navigation
-
-I've added links at the top of the page for easy navigation. It's like having quick bookmarks to your favorite sections.
-
-
-# Resume Page: A Snapshot of My Professional Persona
-
-## The Intent of the Resume Page
-
-The Resume Page is like a concise story of my professional life. It's designed to give you a quick yet comprehensive view of my skills, experiences, and achievements. It's not just a page; it's a document that represents me in the professional world.
-
-## Design and Layout
-
-### Document-Like Appearance
-
-I've designed this page to mirror a traditional resume. It's formatted to be clear, professional, and easy to read, just like a well-crafted resume on paper.
-
-### Responsive and Scalable
-
-The page is built with React components, ensuring it looks great on any device. Whether you're viewing it on a desktop or a mobile, the format stays intact, scaling beautifully to fit your screen.
-
-## Content Breakdown
-
-The Resume Page includes several key sections:
-
-- **Introduction:** A quick overview of who I am, along with my contact information and links to my social media profiles.
-- **About Me:** A brief paragraph that gives insight into my personality and professional ethos.
-- **Work Experience:** A detailed list of where I've worked, my roles, and what I've achieved there.
-- **Certifications:** The qualifications and certifications I've earned, showcasing my commitment to continuous learning.
-- **Skills:** A rundown of my technical and soft skills.
-- **Projects:** Highlights of the projects I've worked on, showcasing my practical experience.
-- **Education:** Information about my academic background.
-
-## The 'Download as PDF' Feature
-
-One of the coolest features of this page is the 'Download as PDF' button. This allows visitors to download a copy of my resume in a convenient PDF format. It's like having a takeaway version of my professional story.
-
-## Unified Data Source
-
-What's unique here is the integration of data. The information for both the About Me page and the Resume page is pulled from a single JSON data source. This ensures consistency and makes updates a breeze.
-
-
-
+As we continue to develop and refine this technology, future enhancements may include incorporating more advanced AI models and exploring alternative storage solutions to make the system even more robust and scalable.

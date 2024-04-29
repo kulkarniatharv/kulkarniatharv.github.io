@@ -21,26 +21,10 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Element } from 'react-scroll'
 import slugify from 'slugify'
 
-const ProjectDetail = ({ project }) => {
+const ProjectDetail = ({ project, images }) => {
   // Destructuring props for ease of access
   const { markdown } = project
-
-  // React.useEffect(() => {
-  //   const headingRegex = /^(#{1,6})\s+(.+)/gm
-  //   const extractedHeadings = markdown
-  //     .split('\n')
-  //     .filter(line => line.match(headingRegex))
-  //     .map(rawHeading => {
-  //       const title = rawHeading.replace(/^(#{1,6})\s+/, '').trim()
-  //       return { title, id: slugify(title, { lower: true }) }
-  //     })
-
-  //   // Pass headings up to the parent component
-  //   if (onHeadingsExtracted) {
-  //     setLocalExtractedHeadings(extractedHeadings)
-  //     onHeadingsExtracted(extractedHeadings)
-  //   }
-  // }, [markdown, onHeadingsExtracted])
+  console.log('Images: ', images)
 
   // Framer Motion component and hook
   const MotionBox = motion(Box)
@@ -133,7 +117,7 @@ const ProjectDetail = ({ project }) => {
     // ... add other heading levels if needed
     p: ({ children }) => <Text mb={4}>{children}</Text>,
     a: ({ href, children }) => (
-      <Link href={href} isExternal color="teal.500">
+      <Link href={href} isExternal color="teal.500" target="_blank">
         {children}
       </Link>
     ),
@@ -152,6 +136,28 @@ const ProjectDetail = ({ project }) => {
         })}
       </List>
     ),
+    // Updating the image renderer to use GatsbyImage
+    img: ({ src, alt }) => {
+      console.log('src:', src)
+      // Modify the src value to match the format in the images array
+      const formattedSrc = src.replace('../assets/images/', '')
+
+      // Find the image in the images array using the modified src value
+      const image = images.find(img => img.src === formattedSrc)
+      console.log('image', image)
+      if (image) {
+        const gatsbyImageData = getImage(image.gatsbyImageData)
+        return (
+          <GatsbyImage
+            image={gatsbyImageData}
+            alt={alt}
+            style={{ maxWidth: '40%', marginTop: '1em' }}
+          />
+        )
+      }
+      // Fallback for any unmatched case
+      return <img src={src} alt={alt} style={{ maxWidth: '100%' }} />
+    },
   }
 
   return (

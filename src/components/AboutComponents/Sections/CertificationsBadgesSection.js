@@ -27,12 +27,12 @@ const CertificationsBadgesSection = props => {
 
   const AWSCertPDF = AWSCertData.pdfs.publicURL
   return (
-    <Box flex="1" id="certifications">
+    <Box flex="1" id="certifications" mb={5}>
       {/* <Timeline /> */}
-      <Heading as="h2" size="xl">
+      <Heading as="h2" size="lg" mb={5}>
         Certifications
       </Heading>
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={5} my="5">
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={5}>
         {aboutMeData.certifications.map((entry, index) => (
           <Box
             key={index}
