@@ -8,12 +8,12 @@ duration: ""
 role: ""
 # repoLink: "https://github.com/"
 # liveLink: "https://kulkarniatharv.github.io/"
-notableProject: true
+notableProject: false
 cardBadge: "New"
 cardBadgeColorScheme: "teal"
-onProjectsPage: false
+onProjectsPage: true
 imagesUrl: 
-    -
+    - ../assets/images/landingPageImg.png
 ---
 
 # Snap Doc & Ask Privacy Policy

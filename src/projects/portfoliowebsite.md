@@ -13,7 +13,7 @@ cardBadge: "New"
 cardBadgeColorScheme: "teal"
 onProjectsPage: true
 imagesUrl: 
-    -
+    - ../assets/images/landingPageImg.png
 ---
 
 # Introduction
