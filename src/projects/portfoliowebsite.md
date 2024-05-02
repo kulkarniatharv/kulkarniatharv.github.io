@@ -2,7 +2,7 @@
 title: "My Portfolio Website"
 slug: "portfolio-website"
 sections: ["web-development"]
-description: "Know more about how I developed my portfolio website  website website website website website website website"
+description: "Know more about how I developed my portfolio website."
 techStack: ["Gatsby.js", "Chakra UI"]
 duration: ""
 role: ""
