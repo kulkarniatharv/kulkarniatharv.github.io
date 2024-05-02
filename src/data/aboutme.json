@@ -51,19 +51,19 @@
     ],
     "projects": [
         {
-            "name": "DirecTV",
-            "badge": "Workday Integrations",
+            "name": "Snap Doc & Ask",
+            "badge": "Generative AI",
+            "description": ""
+        },
+        {
+            "name": "IBM",
+            "badge": "Consultancy",
             "description": "Consultancy work for ATnT-DirecTV"
         },
         {
-            "name": "D. E. Shaw",
-            "badge": "Scrambling Tool",
-            "description": "Worked on Data scrambling tool for D. E. Shaw"
-        },
-        {
-            "name": "Swiftpoint",
-            "badge": "Workday Integrations",
-            "description": "Enhanced and supported one-stop Workday Integrations Automated Testing tool"
+            "name": "Decentralized EHR Management system",
+            "badge": "Research",
+            "description": "Blockchain-based Decentralized Electronic Healthcare Records Management system"
         }
     ],
     "skills": {
