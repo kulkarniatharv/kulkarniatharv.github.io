@@ -1,14 +1,15 @@
-import React from 'react'
-import { Box, Text, Heading, Grid, VStack } from '@chakra-ui/react'
-import { StaticImage } from 'gatsby-plugin-image'
+import { Box, Grid, Heading, Text, VStack } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { useSpring, animated } from 'react-spring'
+import { StaticImage } from 'gatsby-plugin-image'
+import React from 'react'
+import { animated, useSpring } from 'react-spring'
 
-import ProfileDetails from './ProfileDetails'
 import Footer from '../footer'
+import ProfileDetails from './ProfileDetails'
 // import ComponentE from './ComponentE' // Assume this is the import for the new component
 
 import aboutMeData from '../../data/aboutme.json'
+import SocialLinks from '../SocialLinks'
 
 const MotionHeading = motion(Heading)
 
@@ -87,7 +88,7 @@ const Description = () => {
         gridRow={['2', '2']}
         display="flex"
       >
-        <Footer />
+        <SocialLinks alignment="flex-start" />
       </Box>
 
       {/* Component D */}

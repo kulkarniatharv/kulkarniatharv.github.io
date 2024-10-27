@@ -1,13 +1,12 @@
 {
-    "homeScreenDescription": "I'm an innovative Developer with expertise in software development, AI, and automation. My experience includes transformative projects at IBM and pioneering independent applications. I specialize in enhancing systems through AI and efficient cloud solutions, with certifications in Azure and AWS to back my skills.",
+    "homeScreenDescription": "I build cool stuff. Reach out if you want to collaborate. Currently playing Elden Ring and occasionally posting on X.",
     "homeScreenProfileDetails": {
-        "Current Role": "Associate Developer @ IBM",
-        "Currently Looking for": "Role in Data Science, Data Engineering or Robotics",
+        "Current Role": "AI @ Incubyte",
+        "Currently Working with": "LLMs, Generative AI, and Full Stack Development",
         "Published Research": {
             "linkText": "IEEE - Blockchain-Based User-Centric Electronic Health Record Management System",
             "link": "https://ieeexplore.ieee.org/document/9935834"
         },
-        "Experience": "Over 1.5 years at IBM",
         "Cloud Certifications": [
             {
                 "linkText": "AWS Certified Cloud Practitioner",

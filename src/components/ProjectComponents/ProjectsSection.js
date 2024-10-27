@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { Link } from 'gatsby'
+import { ArrowForwardIcon } from '@chakra-ui/icons'
 import {
   Box,
   Heading,
-  SimpleGrid,
   IconButton,
   Modal,
-  ModalOverlay,
+  ModalBody,
+  ModalCloseButton,
   ModalContent,
   ModalHeader,
-  ModalCloseButton,
-  ModalBody,
+  ModalOverlay,
+  SimpleGrid,
   useDisclosure,
 } from '@chakra-ui/react'
-import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { Link } from 'gatsby'
+import React from 'react'
 
 import { motion } from 'framer-motion'
 
-import ProjectCard from './ProjectCard'
+import ProjectCard from './ProjectCard.tsx'
 
 // import * as projectsStyles from '../../styles/projects.module.scss'
 

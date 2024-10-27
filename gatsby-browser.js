@@ -7,11 +7,12 @@
 
 // You can delete this file if you're not using it
 
-import React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
+import React from 'react'
 import initializeAOS from './aos.config'
-import theme from './theme'
 import ColorModeProvider from './src/contexts/ColorModeProvider'
+import './src/styles/global.scss'
+import theme from './theme'
 
 export const onInitialClientRender = () => {
   initializeAOS()

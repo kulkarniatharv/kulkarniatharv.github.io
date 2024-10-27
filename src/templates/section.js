@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { graphql } from 'gatsby'
 import { Box, Grid } from '@chakra-ui/react'
-import ProjectCard from '../components/ProjectComponents/ProjectCard'
+import { graphql } from 'gatsby'
+import React from 'react'
+import ProjectCard from '../components/ProjectComponents/ProjectCard.tsx'
 
 export const query = graphql`
   query ($section: String!) {

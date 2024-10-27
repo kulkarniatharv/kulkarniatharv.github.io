@@ -1,54 +1,46 @@
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react'
-import { Link, graphql } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
+import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
-  Container,
-  Heading,
-  Text,
   Box,
-  Flex,
   Button,
-  List,
-  ListItem,
-  ListIcon,
-  Icon,
   ChakraProvider,
+  Container,
+  Flex,
+  Heading,
+  Icon,
+  List,
+  ListIcon,
+  ListItem,
+  Text,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import { Link, graphql } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import gsap from 'gsap'
-import { useSpring, animated } from 'react-spring'
+import React, { useContext } from 'react'
 import { FaAws, FaMicrosoft } from 'react-icons/fa'
-import { ChevronRightIcon } from '@chakra-ui/icons'
+import { animated, useSpring } from 'react-spring'
 // Context import
-import ColorModeProvider from '../contexts/ColorModeProvider'
-import ColorModeContext from '../contexts/ColorModeContext'
 import theme from '../../theme'
+import ColorModeContext from '../contexts/ColorModeContext'
+import ColorModeProvider from '../contexts/ColorModeProvider'
 
 import Seo from '../components/seo'
 import * as styles from '../styles/index.module.scss'
 
 import Layout from '../components/Layout'
-import MainScreen from '../components/MainScreen/MainScreen'
+import MainScreen from '../components/MainScreen/MainScreen.tsx'
 
 const MotionHeading = motion(Heading)
 
-const Home = ({ data }) => {
-  const { colorMode, toggleColorMode } = useContext(ColorModeContext)
-  const arrowColor = colorMode === 'light' ? 'black' : 'white'
-
-  const titleSpring = useSpring({
-    from: { opacity: 0, transform: 'translateY(20px)' },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-    delay: 500,
-  })
-
-  return (
-    <Layout>
-      <MainScreen projects={data.projects.nodes} />
-    </Layout>
-  )
-}
+const Home = ({ data }) => (
+  <Layout>
+    <MainScreen
+      projects={data.projects.nodes}
+      blogPosts={data.blogPosts.nodes}
+    />
+  </Layout>
+)
 
 export const query = graphql`
   {
@@ -63,6 +55,11 @@ export const query = graphql`
           slug
           cardBadge
           cardBadgeColorScheme
+        }
+        parent {
+          ... on File {
+            modifiedTime(formatString: "DD/MMM/YYYY")
+          }
         }
       }
     }
