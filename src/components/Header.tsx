@@ -1,20 +1,24 @@
 /* eslint-disable react/prop-types */
 // src/components/header.js
 
-import {
-  Box,
-  Button,
-  Link as ChakraLink,
-  Grid,
-} from '@chakra-ui/react'
+import { Box, Button, Link as ChakraLink, Grid } from '@chakra-ui/react'
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import * as styles from '../styles/header.module.scss'
 import Container from './Container'
 
-const Header = props => {
+interface LogoQueryData {
+  logoLight: {
+    publicURL: string
+  }
+}
 
-  const data = useStaticQuery(graphql`
+interface HeaderProps {
+  // Add any props here if needed
+}
+
+const Header: React.FC<HeaderProps> = () => {
+  const data = useStaticQuery<LogoQueryData>(graphql`
     query {
       logoLight: file(relativePath: { eq: "Atharv_Kulkarni-logo.svg" }) {
         publicURL
@@ -27,11 +31,11 @@ const Header = props => {
       <Container>
         <Grid
           pt={4}
-          templateColumns={{ base: "1fr", md: "1fr auto" }}
+          templateColumns={{ base: '1fr', md: '1fr auto' }}
           gap={4}
           alignItems="center"
         >
-          <Box justifySelf={{ base: "center", md: "start" }}>
+          <Box justifySelf={{ base: 'center', md: 'start' }}>
             <img
               width="100px"
               src={data.logoLight.publicURL}
@@ -39,12 +43,19 @@ const Header = props => {
             />
           </Box>
           <Grid
-            templateColumns={{ base: "1fr", sm: "repeat(3, auto)" }}
+            templateColumns={{ base: '1fr', sm: 'repeat(3, auto)' }}
             gap={2}
-            justifyItems={{ base: "center", md: "end" }}
+            justifyItems={{ base: 'center', md: 'end' }}
             mt={{ base: 4, md: 0 }}
           >
-            <ChakraLink as={GatsbyLink} to="/" px={2} py={1} rounded="md" w="100%">
+            <ChakraLink
+              as={GatsbyLink}
+              to="/"
+              px={2}
+              py={1}
+              rounded="md"
+              w="100%"
+            >
               <Button
                 colorScheme="gray"
                 variant="ghost"
@@ -54,7 +65,14 @@ const Header = props => {
                 Home
               </Button>
             </ChakraLink>
-            <ChakraLink as={GatsbyLink} to="/about" px={2} py={1} rounded="md" w="100%">
+            <ChakraLink
+              as={GatsbyLink}
+              to="/about"
+              px={2}
+              py={1}
+              rounded="md"
+              w="100%"
+            >
               <Button
                 colorScheme="gray"
                 variant="ghost"
@@ -64,7 +82,14 @@ const Header = props => {
                 About Me
               </Button>
             </ChakraLink>
-            <ChakraLink as={GatsbyLink} to="/projects" px={2} py={1} rounded="md" w="100%">
+            <ChakraLink
+              as={GatsbyLink}
+              to="/projects"
+              px={2}
+              py={1}
+              rounded="md"
+              w="100%"
+            >
               <Button
                 colorScheme="gray"
                 variant="ghost"

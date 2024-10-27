@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import { graphql } from 'gatsby'
+import React from 'react'
 import {
-  Link as ScrollLink,
   Events,
   animateScroll as scroll,
+  Link as ScrollLink,
   scrollSpy,
 } from 'react-scroll'
 import slugify from 'slugify'
 import Layout from '../components/Layout'
-import ProjectMetadata from '../components/TemplateComponents/Project/ProjectMetadata'
 import ProjectDetail from '../components/TemplateComponents/Project/ProjectDetail'
-import * as styles from '../styles/projectTemplate.scss'
+import ProjectMetadata from '../components/TemplateComponents/Project/ProjectMetadata'
+// import * as styles from '../styles/projectTemplate.module.scss'
 
 // Extract headings from markdownRemark.rawMarkdownBody
 const extractHeadingsFromMarkdown = markdown => {
@@ -135,7 +135,6 @@ const ProjectTemplate = ({ data }) => {
       <Grid
         templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(6, 1fr)' }}
         gap={4}
-        className={styles.projectTemplatePage}
       >
         <GridItem colSpan={{ sm: 1, md: 2 }}>
           <Box

@@ -9,17 +9,11 @@
 
 import { ChakraProvider } from '@chakra-ui/react'
 import React from 'react'
-import initializeAOS from './aos.config'
-import ColorModeProvider from './src/contexts/ColorModeProvider'
 import './src/styles/global.scss'
 import theme from './theme'
 
-export const onInitialClientRender = () => {
-  initializeAOS()
-}
+export const onInitialClientRender = () => {}
 
 export const wrapRootElement = ({ element }) => (
-  <ChakraProvider theme={theme}>
-    <ColorModeProvider>{element}</ColorModeProvider>
-  </ChakraProvider>
+  <ChakraProvider theme={theme}>{element}</ChakraProvider>
 )

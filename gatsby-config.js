@@ -15,10 +15,9 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet-async',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-plugin-sass',
     `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-transformer-remark',
@@ -96,6 +95,15 @@ module.exports = {
           `Inter:400,700`, // include the font weights you need
         ],
         display: 'swap',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        sassOptions: {
+          includePaths: ['src/styles'],
+        },
+        useResolveUrlLoader: true,
       },
     },
   ],
