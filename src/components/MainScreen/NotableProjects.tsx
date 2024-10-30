@@ -49,7 +49,7 @@ const NotableProjects = ({ projects }) => {
                 <ProjectCard 
                   project={{
                     ...project.frontmatter,
-                    lastModified: project.parent.modifiedTime
+                    lastModified: project.parent?.modifiedTime || null
                   }} 
                   clampDescription={true}
                 />

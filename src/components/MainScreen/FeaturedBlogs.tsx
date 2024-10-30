@@ -2,17 +2,18 @@ import { Box, Heading, useBreakpointValue } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useState } from 'react';
 import BlogCard from '../BlogComponents/BlogCard';
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "../ui/carousel";
 
 interface BlogPost {
   frontmatter: {
     title: string;
     slug: string;
+    description: string;
   };
 }
 

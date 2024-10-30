@@ -4,27 +4,19 @@
 import { Box, Button, Link as ChakraLink, Grid } from '@chakra-ui/react'
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import * as styles from '../styles/header.module.scss'
+import styles from '../styles/header.module.scss'
 import Container from './Container'
 
-interface LogoQueryData {
-  logoLight: {
-    publicURL: string
-  }
-}
-
-interface HeaderProps {
-  // Add any props here if needed
-}
-
-const Header: React.FC<HeaderProps> = () => {
-  const data = useStaticQuery<LogoQueryData>(graphql`
+const Header = () => {
+  const data = useStaticQuery(graphql`
     query {
       logoLight: file(relativePath: { eq: "Atharv_Kulkarni-logo.svg" }) {
         publicURL
       }
     }
   `)
+
+  console.log({ styles })
 
   return (
     <Box as="header" className={styles.header}>

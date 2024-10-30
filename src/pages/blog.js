@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 // src/pages/blog.js
-import React from 'react'
 import { graphql, Link } from 'gatsby'
+import React from 'react'
 import Layout from '../components/Layout'
-import '../styles/global.scss'
-import * as styles from '../styles/blogPosts.module.scss'
+import styles from '../styles/blogPosts.module.scss'
 
 export default function Blog({ data }) {
   const blogPosts = data.allMarkdownRemark.nodes

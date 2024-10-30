@@ -120,32 +120,13 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  // Disable CSS order warnings
-  if (stage === 'build-javascript' || stage === 'develop') {
-    const config = getConfig()
-    const miniCssExtractPlugin = config.plugins.find(
-      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
-    )
-    if (miniCssExtractPlugin) {
-      miniCssExtractPlugin.options.ignoreOrder = true
-    }
-    actions.replaceWebpackConfig(config)
-  }
-
-  // Optimize CSS chunks
-  actions.setWebpackConfig({
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|scss)$/,
-            chunks: 'all',
-            enforce: true,
-          },
-        },
-      },
-    },
-  })
-}
+// exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+//   const config = getConfig()
+  
+//   // Remove existing rules for scss
+//   config.module.rules = config.module.rules.filter(
+//     rule => !rule.test?.toString().includes('scss')
+//   )
+  
+//   actions.replaceWebpackConfig(config)
+// }

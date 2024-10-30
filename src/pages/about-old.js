@@ -1,46 +1,46 @@
 // /* eslint-disable react/prop-types */
 
-import React, { useState, useEffect, useRef } from 'react'
 import {
+  Badge,
   Box,
+  Button,
+  chakra,
   Flex,
+  Grid,
+  GridItem,
   Heading,
-  Text,
+  HStack,
+  Icon,
   List,
   ListIcon,
   ListItem,
-  Badge,
-  Button,
-  chakra,
+  Text,
   VStack,
-  HStack,
-  Grid,
-  GridItem,
-  Icon,
 } from '@chakra-ui/react'
-import { Link as ScrollLink, Events, scrollSpy } from 'react-scroll'
 import { StaticImage } from 'gatsby-plugin-image'
+import React, { useEffect, useRef, useState } from 'react'
+import { Events, Link as ScrollLink, scrollSpy } from 'react-scroll'
 
 // Importing icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faJsSquare,
-  faReact,
-  faPython,
-  faGitAlt,
   faEthereum,
+  faGitAlt,
+  faJsSquare,
   faNodeJs,
+  faPython,
+  faReact,
 } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import {
 
 // } from '@fortawesome/free-solid'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
 import { FaDatabase } from 'react-icons/fa'
-import Timeline from '../components/Timeline/Timeline'
 import Layout from '../components/Layout'
+import Timeline from '../components/Timeline/Timeline'
 
-import * as styles from '../styles/about.module.scss'
+import styles from '../styles/about.module.scss'
 
 const ChakraScrollLink = chakra(ScrollLink)
 

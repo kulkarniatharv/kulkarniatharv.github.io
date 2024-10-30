@@ -14,6 +14,32 @@ module.exports = {
     siteUrl: `https://kulkarniatharv.github.io/`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        implementation: require('sass'),
+        sassOptions: {
+          includePaths: ['src/styles'],
+        },
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+            exportLocalsConvention: 'camelCase',
+            localIdentName: '[name]__[local]___[hash:base64:5]'
+          }
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [
+          require('tailwindcss'),
+          require('autoprefixer'),
+        ],
+      },
+    },
     `gatsby-plugin-image`,
     'gatsby-plugin-react-helmet-async',
     `gatsby-transformer-sharp`,
@@ -95,15 +121,6 @@ module.exports = {
           `Inter:400,700`, // include the font weights you need
         ],
         display: 'swap',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        sassOptions: {
-          includePaths: ['src/styles'],
-        },
-        useResolveUrlLoader: true,
       },
     },
   ],

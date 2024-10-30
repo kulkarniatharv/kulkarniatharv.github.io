@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 // src/components/Layout.js
 import { useLocation } from '@reach/router'
-import React from 'react'
-import Container from './Container.tsx'
+import React, { ReactNode } from 'react'
+import Container from './Container'
 import Footer from './footer'
 import Header from './Header'
 import ScrollToTopButton from './ScrollToTopButton'
@@ -10,7 +10,11 @@ import ScrollToTopButton from './ScrollToTopButton'
 import '../styles/global.scss'
 import * as layoutStyles from '../styles/layout.module.scss'
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 

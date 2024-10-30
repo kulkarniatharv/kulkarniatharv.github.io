@@ -23,6 +23,10 @@ interface BlogPost {
   frontmatter: {
     title: string;
     slug: string;
+    description: string;
+  };
+  parent: {
+    modifiedTime: string;
   };
 }
 
@@ -41,9 +45,9 @@ const MainScreen: React.FC<MainScreenProps> = ({ projects, blogPosts }) => (
       <NotableProjects projects={projects} />
     </Box>
 
-    {/* <Box as="section" mt={5} mb={5}>
+    <Box as="section" mt={5} mb={5}>
       <FeaturedBlogs blogPosts={blogPosts} />
-    </Box> */}
+    </Box>
   </Container>
 )
 

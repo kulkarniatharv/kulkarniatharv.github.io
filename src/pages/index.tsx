@@ -14,33 +14,67 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { Link, graphql } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import gsap from 'gsap'
 import React, { useContext } from 'react'
 import { FaAws, FaMicrosoft } from 'react-icons/fa'
 import { animated, useSpring } from 'react-spring'
-// Context import
+
 import theme from '../../theme'
+import Layout from '../components/Layout'
+import MainScreen from '../components/MainScreen/MainScreen'
+import Seo from '../components/seo'
 import ColorModeContext from '../contexts/ColorModeContext'
 import ColorModeProvider from '../contexts/ColorModeProvider'
+import styles from '../styles/index.module.scss'
 
-import Seo from '../components/seo'
-import * as styles from '../styles/index.module.scss'
+interface ProjectNode {
+  frontmatter: {
+    title: string
+    description: string
+    notableProject: boolean
+    slug: string
+    cardBadge: string
+    cardBadgeColorScheme: string
+  }
+  parent: {
+    modifiedTime: string
+  }
+}
 
-import Layout from '../components/Layout'
-import MainScreen from '../components/MainScreen/MainScreen.tsx'
+interface BlogPostNode {
+  frontmatter: {
+    title: string
+    slug: string
+    description: string
+  }
+  parent: {
+    modifiedTime: string
+  }
+}
 
-const MotionHeading = motion(Heading)
+interface QueryData {
+  projects: {
+    nodes: ProjectNode[]
+  }
+  blogPosts: {
+    nodes: BlogPostNode[]
+  }
+}
 
-const Home = ({ data }) => (
-  <Layout>
-    <MainScreen
+
+const Home: React.FC<PageProps<QueryData>> = ({ data }) => {
+  console.log(data)
+  return (
+    <Layout>
+      <MainScreen
       projects={data.projects.nodes}
       blogPosts={data.blogPosts.nodes}
     />
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export const query = graphql`
   {
@@ -70,6 +104,12 @@ export const query = graphql`
         frontmatter {
           title
           slug
+          description
+        }
+        parent {
+          ... on File {
+            modifiedTime(formatString: "DD/MMM/YYYY")
+          }
         }
       }
     }
@@ -78,9 +118,4 @@ export const query = graphql`
 
 export default Home
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+export const Head = (): JSX.Element => <Seo title="Home" />
