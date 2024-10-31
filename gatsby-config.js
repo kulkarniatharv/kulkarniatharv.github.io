@@ -90,14 +90,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'projects',
-        path: `${__dirname}/src/projects/`,
+        path: `${__dirname}/content/projects/`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'blog',
-        path: `${__dirname}/src/blog/`,
+        path: `${__dirname}/content/blog/`,
       },
     },
     {

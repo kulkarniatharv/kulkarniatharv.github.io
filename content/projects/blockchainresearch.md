@@ -13,7 +13,7 @@ cardBadge: "New"
 cardBadgeColorScheme: "teal"
 onProjectsPage: true
 imagesUrl:
-  - ../assets/images/blockchain-research/architecture-diagram.jpg
+  - ../../src/assets/images/blockchain-research/architecture-diagram.jpg
 ---
 
 # Blockchain-based user-centric electronic health record management system 

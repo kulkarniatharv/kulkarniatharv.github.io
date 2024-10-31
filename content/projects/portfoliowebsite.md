@@ -13,7 +13,7 @@ cardBadge: "New"
 cardBadgeColorScheme: "teal"
 onProjectsPage: true
 imagesUrl: 
-    - ../assets/images/landingPageImg.png
+    - ../../src/assets/images/landingPageImg.png
 ---
 
 # Introduction
@@ -110,7 +110,7 @@ At the beginning of each markdown file, there's a section called YAML frontmatte
 title: "My Portfolio Website"
 sections: ["Web Development"]
 description: "A detailed account of how I built my portfolio website."
-imageurl: "../assets/images/portfolio.jpg"
+imageurl: "../../src/assets/images/portfolio.jpg"
 ```
 
 This metadata is what drives the dynamic rendering of the project cards.

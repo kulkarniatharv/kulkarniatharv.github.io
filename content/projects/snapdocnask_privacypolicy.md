@@ -13,7 +13,7 @@ cardBadge: "New"
 cardBadgeColorScheme: "teal"
 onProjectsPage: true
 imagesUrl: 
-    - ../assets/images/landingPageImg.png
+    - ../../src/assets/images/landingPageImg.png
 ---
 
 # Snap Doc & Ask Privacy Policy

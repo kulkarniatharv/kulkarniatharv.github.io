@@ -29,7 +29,7 @@ export default function Blog({ data }) {
 
 export const query = graphql`
   query BlogPosts {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/blog/" } }) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/content/blog/" } }) {
       nodes {
         id
         frontmatter {

@@ -1,33 +1,9 @@
 /* eslint-disable react/prop-types */
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import {
-  Box,
-  Button,
-  ChakraProvider,
-  Container,
-  Flex,
-  Heading,
-  Icon,
-  List,
-  ListIcon,
-  ListItem,
-  Text,
-} from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-import { graphql, Link, PageProps } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
-import gsap from 'gsap'
-import React, { useContext } from 'react'
-import { FaAws, FaMicrosoft } from 'react-icons/fa'
-import { animated, useSpring } from 'react-spring'
-
-import theme from '../../theme'
+import { graphql, PageProps } from 'gatsby'
+import React from 'react'
 import Layout from '../components/Layout'
 import MainScreen from '../components/MainScreen/MainScreen'
 import Seo from '../components/seo'
-import ColorModeContext from '../contexts/ColorModeContext'
-import ColorModeProvider from '../contexts/ColorModeProvider'
-import styles from '../styles/index.module.scss'
 
 interface ProjectNode {
   frontmatter: {
@@ -79,7 +55,7 @@ const Home: React.FC<PageProps<QueryData>> = ({ data }) => {
 export const query = graphql`
   {
     projects: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
     ) {
       nodes {
         frontmatter {
@@ -98,7 +74,7 @@ export const query = graphql`
       }
     }
     blogPosts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      filter: { fileAbsolutePath: { regex: "/content/blog/" } }
     ) {
       nodes {
         frontmatter {

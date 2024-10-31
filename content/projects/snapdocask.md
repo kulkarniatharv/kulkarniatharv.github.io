@@ -9,9 +9,9 @@ cardBadge: "New"
 cardBadgeColorScheme: "teal"
 onProjectsPage: true
 imagesUrl: 
-  - ../assets/images/snapdocask/initial-screen.jpg
-  - ../assets/images/snapdocask/chat-with-ocr-text.jpg
-  - ../assets/images/snapdocask/previous-chats.jpg
+  - ../../src/assets/images/snapdocask/initial-screen.jpg
+  - ../../src/assets/images/snapdocask/chat-with-ocr-text.jpg
+  - ../../src/assets/images/snapdocask/previous-chats.jpg
 duration: ""
 role: ""
 repoLink: ""

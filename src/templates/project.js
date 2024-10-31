@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import { ChevronRightIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { Box, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Container } from '@chakra-ui/react'
 import { graphql } from 'gatsby'
 import React from 'react'
 import {
@@ -13,7 +13,8 @@ import slugify from 'slugify'
 import Layout from '../components/Layout'
 import ProjectDetail from '../components/TemplateComponents/Project/ProjectDetail'
 import ProjectMetadata from '../components/TemplateComponents/Project/ProjectMetadata'
-// import * as styles from '../styles/projectTemplate.module.scss'
+import styles from '../styles/projectTemplate.module.scss'
+import TableOfContents from '../components/TableOfContents'
 
 // Extract headings from markdownRemark.rawMarkdownBody
 const extractHeadingsFromMarkdown = markdown => {
@@ -29,101 +30,14 @@ const extractHeadingsFromMarkdown = markdown => {
   return extractedHeadings
 }
 
-const TableOfContents = ({ headings }) => (
-  <Box
-    as="nav"
-    p="4"
-    borderLeft="1px"
-    borderColor="gray.200"
-    ml="4"
-    overflowY="auto"
-    sx={{
-      '&::-webkit-scrollbar': {
-        height: '10px',
-        width: '5px',
-      },
-
-      '&::-webkit-scrollbar-track': {
-        borderRadius: '5px',
-        backgroundColor: '#DFE9EB',
-      },
-
-      '&::-webkit-scrollbar-track:hover': {
-        backgroundColor: '#B8C0C2',
-      },
-
-      '&::-webkit-scrollbar-track:active': {
-        backgroundColor: '#B8C0C2',
-      },
-
-      '&::-webkit-scrollbar-thumb': {
-        borderRadius: '5px',
-        backgroundColor: '#7D58E3',
-      },
-
-      '&::-webkit-scrollbar-thumb:hover': {
-        backgroundColor: '#553C9A',
-      },
-
-      '&::-webkit-scrollbar-thumb:active': {
-        backgroundColor: '#8D63FF',
-      },
-    }}
-  >
-    <Text fontWeight="bold">Table of contents</Text>
-    {headings.map((heading, index) => (
-      <Box
-        key={index}
-        _hover={{ bg: 'gray.100' }}
-        borderRadius="md"
-        style={{ paddingLeft: `${heading.level - 1}rem`, marginTop: '0.5rem' }} // Apply indentation based on heading level
-      >
-        <ScrollLink
-          key={index}
-          containerId="project-detail-container"
-          to={heading.id}
-          activeStyle={{ fontWeight: 'bold' }}
-          spy
-          smooth
-          offset={-70}
-          duration={500}
-          // style={{
-          //   display: 'block',
-          //   transition: 'background-color 0.2s ease-in-out',
-          // }}
-        >
-          <Text fontSize="sm">
-            <ChevronRightIcon />
-            {heading.title}
-          </Text>
-        </ScrollLink>
-      </Box>
-    ))}
-  </Box>
-)
-
 const ProjectTemplate = ({ data }) => {
-  // const project = data.markdownRemark
   const { markdownRemark } = data
   const [headings, setHeadings] = React.useState([])
-
-  // console.log('headings:', headings)
-
-  // const headings = extractHeadings(markdownRemark.rawMarkdownBody)
+  const [isTocOpen, setIsTocOpen] = React.useState(false)
 
   React.useEffect(() => {
     setHeadings(extractHeadingsFromMarkdown(markdownRemark.rawMarkdownBody))
-
-    Events.scrollEvent.register('begin', () => {
-      // console.log('begin', arguments)
-    })
-
-    Events.scrollEvent.register('end', () => {
-      // console.log('end', arguments)
-    })
-
     scrollSpy.update()
-
     return () => {
       Events.scrollEvent.remove('begin')
       Events.scrollEvent.remove('end')
@@ -132,38 +46,66 @@ const ProjectTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <Grid
-        templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(6, 1fr)' }}
-        gap={4}
+      {/* Mobile TOC Toggle */}
+      <Box 
+        display={{ base: 'block', lg: 'none' }} 
+        position="fixed"
+        bottom="20px"
+        right="20px"
+        zIndex="10"
       >
-        <GridItem colSpan={{ sm: 1, md: 2 }}>
+        <IconButton
+          aria-label="Toggle Table of Contents"
+          icon={<HamburgerIcon />}
+          onClick={() => setIsTocOpen(!isTocOpen)}
+          colorScheme="purple"
+          borderRadius="full"
+        />
+      </Box>
+
+      {/* Mobile TOC Drawer */}
+      <Drawer
+        isOpen={isTocOpen}
+        placement="right"
+        onClose={() => setIsTocOpen(false)}
+        size="xs"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Contents</DrawerHeader>
+          <DrawerBody>
+            <TableOfContents headings={headings} onClose={() => setIsTocOpen(false)} />
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Main Content */}
+      <Container maxW="container.xl" py={8}>
+        <Box display="flex" gap={12}>
+          {/* Main Content Area */}
+          <Box flex="1" maxW="860px">
+            <ProjectDetail
+              project={markdownRemark}
+              images={markdownRemark.frontmatter.imagesUrl?.map(image => ({
+                src: image.publicURL,
+                gatsbyImageData: image.childImageSharp.gatsbyImageData,
+              })) || []}
+            />
+          </Box>
+
+          {/* Desktop TOC */}
           <Box
-            as="aside"
-            display="flex"
-            flexDirection="column"
-            placeItems="left"
-            position="sticky"
-            top="0" // Adjust the top value as needed, e.g., top="100px" if you have a header
-            maxHeight="calc(100vh - 200px)" // Adjust the offset if there is a header
-            // overflowY="auto" // Allows scrolling within the sidebar if content overflows
-            ml="10"
-            mx="5"
+            display={{ base: 'none', lg: 'block' }}
+            w="280px"
+            flexShrink={0}
+            position="relative"
+            height="fit-content"
           >
-            <ProjectMetadata project={markdownRemark} />
             <TableOfContents headings={headings} />
           </Box>
-        </GridItem>
-        <GridItem colSpan={{ sm: 1, md: 4 }}>
-          <ProjectDetail
-            project={{ markdown: markdownRemark.rawMarkdownBody }}
-            images={data.markdownRemark.frontmatter.imagesUrl.map(image => ({
-              src: image.relativePath,
-              gatsbyImageData: image.childImageSharp.gatsbyImageData,
-            }))}
-            onHeadingsExtracted={setHeadings}
-          />
-        </GridItem>
-      </Grid>
+        </Box>
+      </Container>
     </Layout>
   )
 }
@@ -176,7 +118,7 @@ export const query = graphql`
         title
         description
         imagesUrl {
-          relativePath
+          publicURL
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }

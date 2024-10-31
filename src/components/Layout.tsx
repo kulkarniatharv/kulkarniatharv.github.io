@@ -8,7 +8,7 @@ import Header from './Header'
 import ScrollToTopButton from './ScrollToTopButton'
 
 import '../styles/global.scss'
-import * as layoutStyles from '../styles/layout.module.scss'
+import layoutStyles from '../styles/layout.module.scss'
 
 interface LayoutProps {
   children: ReactNode

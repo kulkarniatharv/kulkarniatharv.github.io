@@ -10,7 +10,6 @@
 const React = require('react')
 const { ChakraProvider } = require('@chakra-ui/react')
 const theme = require('./theme').default
-const ColorModeProvider = require('./src/contexts/ColorModeProvider').default
 
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `en` })
@@ -29,6 +28,6 @@ exports.onRenderBody = ({ setHtmlAttributes }) => {
 
 exports.wrapRootElement = ({ element }) => (
   <ChakraProvider theme={theme}>
-    <ColorModeProvider>{element}</ColorModeProvider>
+    {element}
   </ChakraProvider>
 )

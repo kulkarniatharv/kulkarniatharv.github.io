@@ -1,30 +1,31 @@
 /* eslint-disable react/prop-types */
 // src/components/ProjectDetail.js
-import React from 'react'
+import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
   Box,
-  VStack,
   Heading,
-  Text,
-  Image,
+
   Link,
   List,
   ListIcon,
   ListItem,
+  Text,
 } from '@chakra-ui/react'
-import { ChevronRightIcon } from '@chakra-ui/icons'
 import { motion } from 'framer-motion'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import { Element } from 'react-scroll'
 import gfm from 'remark-gfm'
 import remarkImages from 'remark-images'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Element } from 'react-scroll'
 import slugify from 'slugify'
+import ProjectHeader from './ProjectHeader'
+
 
 const ProjectDetail = ({ project, images }) => {
   // Destructuring props for ease of access
-  const { markdown } = project
-  console.log('Images: ', images)
+  const markdown = project.rawMarkdownBody
+  // console.log('Images: ', images)
 
   // Framer Motion component and hook
   const MotionBox = motion(Box)
@@ -139,12 +140,10 @@ const ProjectDetail = ({ project, images }) => {
     // Updating the image renderer to use GatsbyImage
     img: ({ src, alt }) => {
       console.log('src:', src)
-      // Modify the src value to match the format in the images array
-      const formattedSrc = src.replace('../assets/images/', '')
-
-      // Find the image in the images array using the modified src value
-      const image = images.find(img => img.src === formattedSrc)
-      console.log('image', image)
+      // Find the image in the images array using the filename
+      const imageName = src.split('/').pop() // Get filename from path
+      const image = images.find(img => img.src.includes(imageName))
+      
       if (image) {
         const gatsbyImageData = getImage(image.gatsbyImageData)
         return (
@@ -155,18 +154,22 @@ const ProjectDetail = ({ project, images }) => {
           />
         )
       }
-      // Fallback for any unmatched case
-      return <img src={src} alt={alt} style={{ maxWidth: '100%' }} />
+      
+      // Fallback: if image not found in Gatsby images, use the direct URL
+      return (
+        <img 
+          src={src.startsWith('/static') ? src : `/static${src}`} 
+          alt={alt} 
+          style={{ maxWidth: '100%' }} 
+        />
+      )
     },
   }
 
   return (
     <MotionBox
-      p={4}
-      m={4}
+      p={{ base: 2, md: 4 }}
       {...animationSettings}
-      maxHeight="calc(100vh - 200px)"
-      overflowY="auto"
       id="project-detail-container"
       sx={{
         '&::-webkit-scrollbar': {
@@ -200,8 +203,11 @@ const ProjectDetail = ({ project, images }) => {
           backgroundColor: '#8D63FF',
         },
       }}
-      maxW="1000px"
     >
+      {/* Project Header Section */}
+      <ProjectHeader frontmatter={project.frontmatter} />
+
+      {/* Article Content */}
       <article>
         <ReactMarkdown
           remarkPlugins={[gfm, remarkImages]}

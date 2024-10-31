@@ -44,10 +44,10 @@ const MainScreen: React.FC<MainScreenProps> = ({ projects, blogPosts }) => (
     <Box as="section" mt={5} mb={5}>
       <NotableProjects projects={projects} />
     </Box>
-
+{/* 
     <Box as="section" mt={5} mb={5}>
       <FeaturedBlogs blogPosts={blogPosts} />
-    </Box>
+    </Box> */}
   </Container>
 )
 

@@ -15,7 +15,7 @@ export default function ProjectsPage({ data }) {
 export const query = graphql`
   {
     projects: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
     ) {
       nodes {
         frontmatter {
